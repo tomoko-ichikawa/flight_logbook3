@@ -10,8 +10,12 @@ class FlightsController < ApplicationController
 	end
 
 	def create
-		Flight.create(flight_params)
-		redirect_to new_flight_path
+		@flight = Flight.create(flight_params)
+		if @flight.save
+			redirect_to new_flight_path
+		else
+			render 'new'
+		end
 	end
 
 	def show
