@@ -1,2 +1,9 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>ユーザー詳細</h1>
+
+<hr>
+<p><span>email: </span><%= @user.email %></p>
+<hr>
+
+<% @flights.each do |flight| %>
+  <p><span>投稿内容:</span><%= link_to flight.departure_airport, flight_path(flight.id) %></p>
+<% end %>
