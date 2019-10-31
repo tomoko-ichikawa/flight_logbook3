@@ -2,7 +2,7 @@ class FlightsController < ApplicationController
 	def index
 		@flights = Flight.all
 	end
-	
+
 	def new
 		@flight = Flight.new
 	end
@@ -10,6 +10,10 @@ class FlightsController < ApplicationController
 	def create
 		Flight.create(flight_params)
 		redirect_to new_flight_path
+	end
+
+	def show
+		@flight = Flight.find(params[:id])
 	end
 
 	private
