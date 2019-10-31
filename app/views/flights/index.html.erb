@@ -1,0 +1,25 @@
+<h1>フライトログ一覧</h1>
+
+<table>
+<tr>
+<th>出発空港</th>
+<th>到着空港</th>
+<th>航空会社</th>
+<th>座席クラス</th>
+<th>搭乗日</th>
+<th>投稿者</th>
+</tr>
+
+<% @flights.each do |flight| %>
+<tr>
+<td><%= flight.departure_airport %></td>
+<td><%= flight.arrival_airport %></td>
+<td><%= flight.airline %></td>
+<td><%= flight.seat_class %></td>
+<td><%= flight.departure_date %></td>
+<td></td>
+</tr>
+<% end %>
+</table>
+
+<%= link_to "新しいフライトログを投稿する", new_flight_path%>
