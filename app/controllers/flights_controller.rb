@@ -28,6 +28,11 @@ class FlightsController < ApplicationController
 		end
 	end
 
+	def destroy
+		@flight.destroy
+		redirect_to flights_path, notice:"ログを削除しました"
+	end
+
 	private
 
 	def flight_params

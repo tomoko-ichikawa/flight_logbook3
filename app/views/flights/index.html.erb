@@ -20,6 +20,7 @@
 <td></td>
 <td><%= link_to "詳細", flight_path(flight.id) %></td>
 <td><%= link_to "編集", edit_flight_path(flight.id) %></td>
+<td><%= link_to "削除", flight_path(flight.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
 </tr>
 <% end %>
 </table>
