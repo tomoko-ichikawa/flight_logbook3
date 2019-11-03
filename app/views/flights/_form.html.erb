@@ -78,8 +78,8 @@
 <div class = "flight">
 <%= form.label :"写真１" %>
 <%= form.file_field :photo1 %>
-<%= photo1_tag(@flight.photo1.url) if @flight.photo1 && @flight.photo1.url %>
-<%= form.hidden_field :photo1_cache %>
+<%= image_tag(@flight.photo1.url) if @flight.photo1 && @flight.photo1.url %>
+<%= form.hidden_field :image_cache %>
 </div>
 <div class = "flight">
 <%= form.label :"写真２" %>
