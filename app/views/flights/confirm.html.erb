@@ -18,8 +18,8 @@
 <%= form.hidden_field :getting_point %>
 <%= form.hidden_field :review %>
 <%= form.hidden_field :photo1_cache %>
-<%= form.hidden_field :photo2 %>
-<%= form.hidden_field :photo3 %>
+<%= form.hidden_field :photo2_cache %>
+<%= form.hidden_field :photo3_cache %>
 
 <p>搭乗日 <%= @flight.departure_date %></p>
 <p>航空会社 <%= @flight.airline %></p>
@@ -65,7 +65,7 @@
 <%= form.hidden_field :getting_point %>
 <%= form.hidden_field :review %>
 <%= form.hidden_field :photo1_cache %>
-<%= form.hidden_field :photo2 %>
-<%= form.hidden_field :photo3 %>
+<%= form.hidden_field :photo2_cache %>
+<%= form.hidden_field :photo3_cache %>
 <%= form.submit "戻る", name: 'back' %>
 <% end %>
