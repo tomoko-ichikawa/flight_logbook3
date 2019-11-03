@@ -77,15 +77,21 @@
 </div>
 <div class = "flight">
 <%= form.label :"写真１" %>
-<%= form.text_field :photo1 %>
+<%= form.file_field :photo1 %>
+<%= image_tag(@flight.photo1.url) if @flight.photo1 && @flight.photo1.url %>
+<%= form.hidden_field :photo1_cache %>
 </div>
 <div class = "flight">
 <%= form.label :"写真２" %>
-<%= form.text_field :photo2 %>
+<%= form.file_field :photo2 %>
+<%= image_tag(@flight.photo2.url) if @flight.photo2 && @flight.photo2.url %>
+<%= form.hidden_field :photo2_cache %>
 </div>
 <div class = "flight">
 <%= form.label :"写真３" %>
-<%= form.text_field :photo3 %>
+<%= form.file_field :photo3 %>
+<%= image_tag(@flight.photo3.url) if @flight.photo3 && @flight.photo3.url %>
+<%= form.hidden_field :photo3_cache %>
 </div>
 <div class = "flight">
 <%= form.label :"総獲得マイル" %>
