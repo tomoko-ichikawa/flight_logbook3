@@ -41,8 +41,8 @@
 <p>獲得ポイント <%= @flight.getting_point %></p>
 <p>感想 <%= @flight.review %></p>
 <p>写真１ <%= image_tag(@flight.photo1.url) if @flight.photo1 && @flight.photo1.url %></p>
-<p>写真２ <%= @flight.photo2 %></p>
-<p>写真３ <%= @flight.photo3 %></p>
+<p>写真２ <%= image_tag(@flight.photo2.url) if @flight.photo2 && @flight.photo2.url %></p>
+<p>写真３ <%= image_tag(@flight.photo3.url) if @flight.photo3 && @flight.photo3.url %></p>
 <%= form.submit "投稿する" %>
 <% end %>
 
