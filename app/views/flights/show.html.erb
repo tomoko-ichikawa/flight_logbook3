@@ -58,13 +58,13 @@
 感想 <%= @flight.review %>
 </div>
 <div class = "flight">
-写真１ <%= @flight.photo1 %>
+写真１ <%= photo1_tag(@flight.photo1.url) if @flight.photo1.present? %>
 </div>
 <div class = "flight">
-写真２ <%= @flight.photo2 %>
+写真２ <%= photo2_tag(@flight.photo1.url) if @flight.photo2.present? %>
 </div>
 <div class = "flight">
-写真３ <%= @flight.photo3 %>
+写真３ <%= photo3_tag(@flight.photo1.url) if @flight.photo3.present? %>
 </div>
 <div class = "flight">
 総獲得マイル <%= @flight.total_getting_mile %>
