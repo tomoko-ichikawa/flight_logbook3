@@ -1,7 +1,9 @@
 <h1>ユーザー詳細</h1>
 
 <hr>
-<p><%= image_tag @user.icon.to_s %></p>
+<div class ="circle-icon">
+	<p><%= image_tag @user.icon.to_s %></p>
+</div>
 <P><span>name: </span><%= @user.name %></P>
 <p><span>email: </span><%= @user.email %></p>
 <P><span>profile: </span><%= @user.profile %></P>
