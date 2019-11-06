@@ -1,6 +1,7 @@
 class FlightsController < ApplicationController
-  before_action :set_flight, only: [:show, :edit, :update, :destroy]
+  before_action :set_flight, only: [:show, :edit, :update, :destroy, :ensure_correct_user]
   before_action :authenticate_user!, except:[:index]
+  before_action :ensure_correct_user, only:[:edit, :update, :destroy]
 	
 	def index
 		@flights = Flight.all
@@ -46,6 +47,13 @@ class FlightsController < ApplicationController
 
 	def confirm
 		@flight = Flight.new(flight_params)
+	end
+
+	def ensure_correct_user
+		if current_user.id != @flight.user_id
+			flash[:notice] = "権限がありません"
+			redirect_to flights_path
+		end
 	end
 
 	private
