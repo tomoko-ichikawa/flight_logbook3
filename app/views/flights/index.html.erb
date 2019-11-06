@@ -12,19 +12,29 @@
 </tr>
 
 <% @flights.each do |flight| %>
-<tr>
-<td><%= flight.departure_airport %></td>
-<td><%= flight.arrival_airport %></td>
-<td><%= flight.airline %></td>
-<td><%= flight.seat_class %></td>
-<td><%= flight.departure_date %></td>
-<td><%= flight.user.name %></td>
-<td><%= link_to "詳細", flight_path(flight.id) %></td>
-<% if current_user && current_user.id == flight.user.id %>
-<td><%= link_to "編集", edit_flight_path(flight.id) %></td>
-<td><%= link_to "削除", flight_path(flight.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
-<% end %>
-</tr>
+	<tr>
+	<td><%= flight.departure_airport %></td>
+	<td><%= flight.arrival_airport %></td>
+	<td><%= flight.airline %></td>
+	<td><%= flight.seat_class %></td>
+	<td><%= flight.departure_date %></td>
+	<td><%= flight.user.name %></td>
+
+	<% if user_signed_in? %>
+		<% if flight.favorited_by?(current_user) %>
+			<td><span>お気に入り解除:</span><%= link_to flight.favorites.count, flight_favorites_path(flight.id), method: :delete %></td>
+		<% else %>
+			<td><span>お気に入り登録:</span><%= link_to flight.favorites.count, flight_favorites_path(flight.id), method: :post %></td>
+		<% end %>
+	<% end %>
+	<td><span>お気に入り数:</span><%= flight.favorites.count %></td>
+
+	<td><%= link_to "詳細", flight_path(flight.id) %></td>
+	<% if current_user && current_user.id == flight.user.id %>
+		<td><%= link_to "編集", edit_flight_path(flight.id) %></td>
+		<td><%= link_to "削除", flight_path(flight.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+	<% end %>
+	</tr>
 <% end %>
 </table>
 

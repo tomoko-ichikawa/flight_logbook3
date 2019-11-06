@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@flights = @user.flights
+		@favorite_flights = @user.favorite_flights
 	end
 
 	def edit
