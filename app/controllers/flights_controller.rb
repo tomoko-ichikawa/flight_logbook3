@@ -19,7 +19,7 @@ class FlightsController < ApplicationController
 		@flight = Flight.create(flight_params)
 		@flight.user_id = current_user.id
 		if @flight.save
-			redirect_to new_flight_path
+			redirect_to flight_path(@flight)
 		else
 			render 'new'
 		end
@@ -27,6 +27,8 @@ class FlightsController < ApplicationController
 
 	def show
 		@user = @flight.user
+		@comment = current_user.comments.build
+		@comments = @flight.comments
 	end
 
 	def edit

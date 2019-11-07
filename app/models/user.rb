@@ -8,5 +8,6 @@ class User < ApplicationRecord
   has_many :flights
   has_many :favorites
   has_many :favorite_flights, through: :favorites, source: :flight
+  has_many :comments
   mount_uploader :icon, IconUploader
 end
