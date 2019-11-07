@@ -8,7 +8,3 @@
 <p><span>email: </span><%= @user.email %></p>
 <P><span>profile: </span><%= @user.profile %></P>
 <hr>
-
-<% @flights.each do |flight| %>
-  <p><span>投稿内容:</span><%= link_to flight.departure_airport, flight_path(flight.id) %></p>
-<% end %>
