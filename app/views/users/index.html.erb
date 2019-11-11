@@ -1,9 +1,15 @@
 <h1>ユーザー一覧</h1>
 <hr>
 
+<%= search_form_for @q do |f| %>
+	<%= f.label :name, "名前" %>
+	<%= f.search_field :name_cont %>
+	<%= f.submit "検索" %>
+<% end %>
+
 <% @users.each do |user| %>
- <hr>
- <p><span>name: </span><%= link_to user.name, user_path(user.id) %></p>
- <p><span>email:</span><%= link_to user.email, user_path(user.id) %></p>
-<P><span>profile: </span><%= link_to user.profile, user_path(user.id) %></P>
+	<hr>
+	<p><span>name: </span><%= link_to user.name, user_path(user.id) %></p>
+	<p><span>email:</span><%= link_to user.email, user_path(user.id) %></p>
+	<P><span>profile: </span><%= link_to user.profile, user_path(user.id) %></P>
 <% end %>
