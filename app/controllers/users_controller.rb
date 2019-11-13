@@ -7,9 +7,11 @@ class UsersController < ApplicationController
 	end
 
 	def show
+		@q = User.ransack(params[:q])
+		@users = @q.result(distinct: true)
 		@user = User.find(params[:id])
 		@flights = @user.flights
-		@favorite_flights = @user.favorite_flights
+		#@favorite_flights = @user.favorite_flights
 		@total_getting_miles = @flights.all.sum(:getting_mile)
 		@total_getting_points = @flights.all.sum(:getting_point)
 	end
