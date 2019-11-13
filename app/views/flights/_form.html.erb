@@ -93,14 +93,6 @@
 <%= image_tag(@flight.photo3.url) if @flight.photo3 && @flight.photo3.url %>
 <%= form.hidden_field :photo3_cache %>
 </div>
-<div class = "flight">
-<%= form.label :"総獲得マイル" %>
-<%= form.text_field :total_getting_mile %>
-</div>
-<div class = "flight">
-<%= form.label :"総獲得ポイント" %>
-<%= form.text_field :total_getting_point %>
-</div>
 
 <%= form.submit %>
 <% end %>
