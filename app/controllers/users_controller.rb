@@ -10,7 +10,8 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@flights = @user.flights
 		@favorite_flights = @user.favorite_flights
-		@getting_miles = @flights.all.sum(:getting_mile)
+		@total_getting_miles = @flights.all.sum(:getting_mile)
+		@total_getting_points = @flights.all.sum(:getting_point)
 	end
 
 	def edit
