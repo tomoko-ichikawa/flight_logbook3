@@ -1,7 +1,7 @@
 <%= form_with(model: @flight,local: true, url: choose_new_or_edit) do |form| %>
 <div class = "flight">
 <%= form.label :"搭乗日" %>
-<%= form.text_field :departure_date %>
+<%= form.date_field :departure_date %>
 </div>
 <div class = "flight">
 <%= form.label :"航空会社" %>
