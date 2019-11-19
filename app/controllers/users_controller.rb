@@ -8,8 +8,11 @@ class UsersController < ApplicationController
 
 	def show
 		@user = User.find(params[:id])
-		@flights = @user.flights
+		@q = @user.flights.ransack(params[:q])
+		@flights = @q.result
 		@favorite_flights = @user.favorite_flights
+		@total_getting_miles = @flights.all.sum(:getting_mile)
+		@total_getting_points = @flights.all.sum(:getting_point)
 	end
 
 	def edit

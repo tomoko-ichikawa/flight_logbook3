@@ -9,6 +9,9 @@
 
 <% @users.each do |user| %>
 	<hr>
+	<div class ="circle-icon">
+		<p><%= image_tag user.icon.to_s %></p>
+	</div>
 	<p><span>name: </span><%= link_to user.name, user_path(user.id) %></p>
 	<p><span>email:</span><%= link_to user.email, user_path(user.id) %></p>
 	<P><span>profile: </span><%= link_to user.profile, user_path(user.id) %></P>

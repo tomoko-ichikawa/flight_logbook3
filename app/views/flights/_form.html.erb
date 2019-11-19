@@ -1,7 +1,7 @@
 <%= form_with(model: @flight,local: true, url: choose_new_or_edit) do |form| %>
 <div class = "flight">
 <%= form.label :"搭乗日" %>
-<%= form.text_field :departure_date %>
+<%= form.date_field :departure_date %>
 </div>
 <div class = "flight">
 <%= form.label :"航空会社" %>
@@ -92,14 +92,6 @@
 <%= form.file_field :photo3 %>
 <%= image_tag(@flight.photo3.url) if @flight.photo3 && @flight.photo3.url %>
 <%= form.hidden_field :photo3_cache %>
-</div>
-<div class = "flight">
-<%= form.label :"総獲得マイル" %>
-<%= form.text_field :total_getting_mile %>
-</div>
-<div class = "flight">
-<%= form.label :"総獲得ポイント" %>
-<%= form.text_field :total_getting_point %>
 </div>
 
 <%= form.submit %>
