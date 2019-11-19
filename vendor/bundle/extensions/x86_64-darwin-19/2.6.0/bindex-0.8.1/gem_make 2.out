@@ -1,0 +1,15 @@
+current directory: /Users/ichikawatomoko/Desktop/flight_logbook3/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+/Users/ichikawatomoko/.rbenv/versions/2.6.4/bin/ruby -I /Users/ichikawatomoko/.rbenv/versions/2.6.4/lib/ruby/2.6.0 -r ./siteconf20191118-60295-1j5k5lk.rb extconf.rb
+creating Makefile
+
+current directory: /Users/ichikawatomoko/Desktop/flight_logbook3/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/ichikawatomoko/Desktop/flight_logbook3/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/ichikawatomoko/Desktop/flight_logbook3/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20191118-60295-7inpp0/skiptrace/internal
