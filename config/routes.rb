@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'comments/create'
+  get 'comments/destroy'
   get 'favorites/create'
   get 'favorites/destroy'
 	devise_for :users, controllers: {
@@ -7,6 +9,7 @@ Rails.application.routes.draw do
 
 	resources :flights do
 		resource :favorites, only:[:create, :destroy]
+		resource :comments, only:[:create, :destroy]
 		collection do
 			post :confirm
 		end
