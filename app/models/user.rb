@@ -6,6 +6,7 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   has_many :flights
+  has_many :comments
   has_many :favorites
   has_many :favorite_flights, through: :favorites, source: :flight
   mount_uploader :icon, IconUploader

@@ -28,6 +28,8 @@ class FlightsController < ApplicationController
 
 	def show
 		@user = @flight.user
+		@comment = current_user.comments.build
+		@comments = @flight.comments
 	end
 
 	def edit

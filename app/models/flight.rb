@@ -1,6 +1,7 @@
 class Flight < ApplicationRecord
 	belongs_to :user
 	has_many :favorites
+	has_many :comments
 	mount_uploader :photo1, ImageUploader
 	mount_uploader :photo2, ImageUploader
 	mount_uploader :photo3, ImageUploader
