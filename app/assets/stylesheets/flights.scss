@@ -68,76 +68,82 @@ footer {
   width: 100%;
   margin: 30px;
   display:inline-block;
-  padding: 15px;
+  padding: 20px;
   border: 1px solid #3b5998; 
   border-radius:10px; 
   word-break:break-all;
 }
 
-.airline {
+.show .airline {
   font-weight: 700;
-  font-size: 200%;
+  font-size: 300%;
   text-align: right;
 }
 
-.name {
+.boarding-pass2 {
+  width: 100%
+}
+
+.passenger_name {
   font-weight: 700;
-  font-size: 150%;
-}
-
-.flight .title {
-  
-  font-size: 50%;
-  vertical-align: top;
-  position: relative;
-  top: -1em;
-}
-
-.flight .details {
-  font-weight: 700;
-}
-
-.flight2 .title {
-  font-size: 50%;
-  vertical-align: top;
-  position: relative;
-  top: -1em;
-}
-
-.flight2 .details {
-  font-weight: 700;
-}
-
-.name hr {
-  height: 3px;
-  background-color: black;
-  width: 100%;
-}
-
-.flight hr {
-  height: 3px;
-  background-color: black;
-  width: 100%;
-}
-
-.flight2 hr {
-  height: 3px;
-  background-color: black;
-  width: 100%;
+  font-size: 200%;
+  border-bottom: inset 5px #000000;
 }
 
 .qr {
-  float: left;
+  width: 200px;
+  padding: 30px;
+}
+
+.show .flight_detail {
+  font-size: 200%;
+  font-weight: 700;
+  border-bottom: inset 5px #000000;
+}
+
+.show_flight {
+  border-collapse: collapse;
+  border-spacing: 0;
+  padding: 20px;
   margin: 30px;
-}
-
-.boarding-pass2 {
-  float: right;
-  width: 85%;
-}
-
-.boarding-pass2 hr {
-  height: 3px;
-  background-color: black;
   width: 100%;
+}
+
+.show_flight tr {
+  border-bottom: solid 1px #eee;
+}
+
+.show_flight td {
+  text-align: left;
+  width: 25%;
+  margin: 30px;
+  padding: 15px;
+}
+
+.show_flight2 {
+  border-collapse: collapse;
+  border-spacing: 0;
+  padding: 20px;
+  margin: 30px;
+  width: 100%;
+}
+
+.show_flight2 td {
+  text-align: left;
+  width: 25%;
+  margin: 30px;
+  padding: 15px;
+}
+
+.review {
+  border-bottom: solid 1px #eee;
+}
+
+
+.new .airline {
+  text-align: right;
+}
+
+.new .flight_detail {
+  border-bottom: inset 5px #000000;
 }
