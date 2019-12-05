@@ -1,40 +1,57 @@
 <h1>フライトログ詳細</h1>
 
-<div class = "flight">
-搭乗日 <%= @flight.departure_date %>
+<div class="boarding-pass">
+  <div class = "airline">
+    <%= @flight.airline %>
+    <%= @flight.seat_class %>
+  </div> 
+  <hr>
+  
+  <div class ="qr">
+    <%= image_tag('qr.jpg') %>
+  </div>
+  
+  <div class="boarding-pass2">
+    <div class="name">
+      <%= @flight.user.name %>
+      <br>
+      <hr>
+    </div>
+    <br>
+    <div class = "flight">
+      <span class="title">Flight</span> 
+      <span class="details"><%= @flight.flight_number %></span>&emsp; 
+      <span class="title">From</span> 
+      <span class="details"> <%= @flight.departure_airport %></span>&emsp;
+      <span class="title">To</span> 
+      <span class="details"> <%= @flight.arrival_airport %></span>&emsp;
+      <span class="title">Date</span> 
+      <span class="details"> <%= @flight.departure_date %></span><hr>
+    </div>
+    <table class = "flight2">
+      <tr>
+        <th class="title">Terminal&emsp; </th>
+        <th class="title">Gate&emsp; </th> 
+        <th class="title">Boarding time&emsp; </th>
+        <th class="title">Seat&emsp; </th>
+        <th class="title">Boarding Group&emsp; </th>
+      </tr>
+      <tr>
+        <th></th>&emsp; 
+        <th></th>&emsp; 
+        <th class="details"><%= @flight.actual_departure_time.strftime("%Y-%m-%d %H:%M") %>&emsp; </th>
+        <th class="details"><%= @flight.seat_number %>&emsp; </th>
+        <th></th>&emsp;
+      </tr>
+    </table>
+    <hr>
+    <P>YOU ARE INVITED TO THE FLIGHT LOGBOOK</P>
+    <p>GATE CLOSES 10 MINS BEFORE DEPARTURE</p>
+  </div>
 </div>
+
 <div class = "flight">
-航空会社 <%= @flight.airline %>
-</div>
-<div class = "flight">
-便名 <%= @flight.flight_number %>
-</div>
-<div class = "flight">
-機種 <%= @flight.aircraft_type %>
-</div>
-<div class = "flight">
-座席クラス <%= @flight.seat_class %>
-</div>
-<div class = "flight">
-座席番号 <%= @flight.seat_number %>
-</div>
-<div class = "flight">
-出発空港 <%= @flight.departure_airport %>
-</div>
-<div class = "flight">
-出発予定時刻 <%= @flight.departure_estimated_time %>
-</div>
-<div class = "flight">
-出発時刻 <%= @flight.actual_departure_time %>
-</div>
-<div class = "flight">
-到着空港 <%= @flight.arrival_airport %>
-</div>
-<div class = "flight">
-到着予定時刻 <%= @flight.arrival_estimated_time %>
-</div>
-<div class = "flight">
-到着時刻 <%= @flight.actual_arrival_time %>
+到着時間 <%= @flight.actual_arrival_time.strftime("%Y-%m-%d %H:%M") %>
 </div>
 <div class = "flight">
 飛行時間 <%= @flight.flight_time %>
