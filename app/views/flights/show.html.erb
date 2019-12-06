@@ -96,16 +96,15 @@
 <br><br>
 <h2>コメント</h2>
 <% @comments.each do |comment| %>
-
-ユーザー名:<%= comment.user.name %><br>
-コメント:<%= comment.content %>
-<% if current_user && current_user.id == comment.user.id %><br>
-<%= link_to "削除", flight_comments_path(flight_id: @flight, id: comment.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
-<% end %>
-<% end %>
-
-
 <hr>
+  <p><%= image_tag('passport.png', width: '30') %>&nbsp; <%= comment.user.name %></p>
+  <p><%= image_tag('comment.png', width: '30') %>&nbsp; <%= comment.content %></p>
+  <p><% if current_user && current_user.id == comment.user.id %>
+    <%= link_to image_tag('garbage.png', width: '30'), flight_comments_path(flight_id: @flight, id: comment.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %></p>
+  <% end %>
+  <hr>
+<% end %>
+
 <%= form_for([@flight, @comment]) do |f| %>
 <%= f.text_field :content %>
 <%= f.submit "コメントする" %>
