@@ -56,9 +56,9 @@ ja:
     - 11月
     - 12月
     order:
-    - :year
-    - :month
-    - :day
+      - :year
+      - :month
+      - :day
   datetime:
     distance_in_words:
       about_x_hours:

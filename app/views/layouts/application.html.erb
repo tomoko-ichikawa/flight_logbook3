@@ -4,24 +4,32 @@
     <title>FlightLogbook3</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-
-    <% if user_signed_in? %>
-      <%= link_to "新規投稿", new_flight_path %>
-      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      <%= link_to "マイページ", user_path(current_user.id) %>
-      <%= link_to "マイページ編集", edit_user_registration_path %>
-    <% else %>
-      <%= link_to "新規登録", new_user_registration_path %>
-      <%= link_to "ログイン", new_user_session_path %>
-    <% end %>
-    <%= link_to "投稿一覧", flights_path %>
-    <%= link_to "ユーザー一覧", users_path %>
-  </head>
-
-  <body>
+    <meta name="viewport" content="width=device-width">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+   </head>
+  
+   <body>
+    <header>
+      <div class="logo">
+        <%= link_to "FLIGHT LOGBOOK", flights_path %>&nbsp;<%= image_tag('airplane_o64.png') %>
+      </div><br>
+      <div class="menu">
+        <% if user_signed_in? %>
+          <li><%= link_to "新規投稿", new_flight_path %></li>&emsp; 
+          <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>&emsp; 
+          <li><%= link_to "マイページ", user_path(current_user.id) %></li>&emsp; 
+          <li><%= link_to "マイページ編集", edit_user_registration_path %></li>&emsp; 
+        <% else %>
+          <li><%= link_to "新規登録", new_user_registration_path %></li>&emsp; 
+          <li><%= link_to "ログイン", new_user_session_path %></li>&emsp; 
+        <% end %>
+        <li><%= link_to "投稿一覧", flights_path %></li>&emsp; 
+        <li><%= link_to "ユーザー一覧", users_path %></li>&emsp; 
+      </div>
+    </header>
+ 
     <%= yield %>
+     
   </body>
 </html>

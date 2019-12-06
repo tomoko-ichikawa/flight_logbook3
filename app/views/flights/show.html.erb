@@ -1,92 +1,112 @@
-<h1>フライトログ詳細</h1>
-
-<div class = "flight">
-搭乗日 <%= @flight.departure_date %>
-</div>
-<div class = "flight">
-航空会社 <%= @flight.airline %>
-</div>
-<div class = "flight">
-便名 <%= @flight.flight_number %>
-</div>
-<div class = "flight">
-機種 <%= @flight.aircraft_type %>
-</div>
-<div class = "flight">
-座席クラス <%= @flight.seat_class %>
-</div>
-<div class = "flight">
-座席番号 <%= @flight.seat_number %>
-</div>
-<div class = "flight">
-出発空港 <%= @flight.departure_airport %>
-</div>
-<div class = "flight">
-出発予定時刻 <%= @flight.departure_estimated_time %>
-</div>
-<div class = "flight">
-出発時刻 <%= @flight.actual_departure_time %>
-</div>
-<div class = "flight">
-到着空港 <%= @flight.arrival_airport %>
-</div>
-<div class = "flight">
-到着予定時刻 <%= @flight.arrival_estimated_time %>
-</div>
-<div class = "flight">
-到着時刻 <%= @flight.actual_arrival_time %>
-</div>
-<div class = "flight">
-飛行時間 <%= @flight.flight_time %>
-</div>
-<div class = "flight">
-飛行距離 <%= @flight.flight_mile %>
-</div>
-<div class = "flight">
-運賃 <%= @flight.fare %>
-</div>
-<div class = "flight">
-予約クラス <%= @flight.booking_class %>
-</div>
-<div class = "flight">
-獲得マイル <%= @flight.getting_mile %>
-</div>
-<div class = "flight">
-獲得ポイント <%= @flight.getting_point %>
-</div>
-<div class = "flight">
-感想 <%= @flight.review %>
-</div>
-<div class = "flight">
-写真１ <%= image_tag(@flight.photo1.url) if @flight.photo1.present? %>
-</div>
-<div class = "flight">
-写真２ <%= image_tag(@flight.photo2.url) if @flight.photo2.present? %>
-</div>
-<div class = "flight">
-写真３ <%= image_tag(@flight.photo3.url) if @flight.photo3.present? %>
-</div>
-<div class = "flight">
-総獲得マイル <%= @flight.total_getting_mile %>
-</div>
-<div class = "flight">
-総獲得ポイント <%= @flight.total_getting_point %>
+<body class="show">
+<div class="boarding-pass">
+  <div class = "airline">
+    <%= @flight.airline %>
+    <%= @flight.seat_class %>&emsp;
+  </div>
+  <hr>
+  <table class="boarding-pass2">
+    <tr>
+      <td rowspan="7" class="qr"><%= image_tag('qr.jpg') %></td>
+      <td colspan="5" class="passenger_name"><%= @flight.user.name %></td>
+    </tr>
+    <tr> 
+      <td colspan="2">Flight</td>
+      <td>From</td>
+      <td>To</td>
+      <td>Date</td>
+    </tr>
+    <tr class="flight_detail">
+      <td colspan="2"><%= @flight.flight_number %></td>
+      <td><%= @flight.departure_airport %></td>
+      <td><%= @flight.arrival_airport %></td>
+      <td><%= @flight.departure_date %></td>
+    </tr>
+    <tr>
+      <td class="title">Terminal&emsp; </td>
+      <td class="title">Gate&emsp; </td> 
+      <td class="title">Departure time&emsp; </td>
+      <td class="title">Seat&emsp; </td>
+      <td class="title">Boarding Group&emsp; </td>
+    </tr>
+    <tr class="flight_detail">
+      <td></td>&emsp; 
+      <td></td>&emsp;         
+      <td class="details"><%= @flight.actual_departure_time.strftime("%Y-%m-%d %H:%M") %>&emsp; </td>
+      <td class="details"><%= @flight.seat_number %>&emsp; </td>
+      <td></td>&emsp;
+      </tr>
+    <tr>
+      <td colspan="5">YOU ARE INVITED TO THE FLIGHT LOGBOOK</td>
+    </tr>
+    <tr>
+      <td colspan="5">GATE CLOSES 10 MINS BEFORE DEPARTURE</td>
+    </tr>
+  </table>
 </div>
 
+
+<table class = "show_flight">
+  <tr>
+    <td><%= image_tag('time.png', width: '30') %>&nbsp; 到着時間</td> <td><%= @flight.actual_arrival_time.strftime("%Y-%m-%d %H:%M") %></td> 
+    <td><%= image_tag('airplane2.png', width: '30') %>&nbsp; 機種</td> <td><%= @flight.aircraft_type %></td>
+  </tr>
+  <tr>
+    <td><%= image_tag('hourglass.png', width: '30') %>&nbsp;  飛行時間</td> <td><%= @flight.flight_time %></td> <td><%= image_tag('departure.png', width: '30') %>&nbsp; 飛行距離</td> <td><%= @flight.flight_mile %></td>
+  </tr>
+  <tr>
+    <td><%= image_tag('en.png', width: '30') %>&nbsp; 運賃</td> <td><%= @flight.fare %></td> <td><%= image_tag('seat.png', width: '30') %>&nbsp; 予約クラス</td> <td> <%= @flight.booking_class %></td>
+  </tr>
+  <tr>
+    <td><%= image_tag('airplane3.png', width: '30') %>&nbsp; 獲得マイル</td> <td><%= @flight.getting_mile %></td> <td><%= image_tag('p.png', width: '30') %>&nbsp; 獲得ポイント</td> <td><%= @flight.getting_point %></td>
+  </tr>
+  <tr>
+    <td><%= image_tag('suitcase.png', width: '30') %>&nbsp; 総獲得マイル</td> <td><%= @flight.total_getting_mile %></td> <td><%= image_tag('point2.png', width: '30') %>&nbsp; 総獲得ポイント</td> <td><%= @flight.total_getting_point %></td>
+  </tr>
+</table>
+
+<table class = "show_flight2">
+  <tr>
+    <td><%= image_tag('note.png', width: '30') %>&nbsp; 感想
+     </td>
+  </tr>
+  <tr class="review">
+    <td><%= @flight.review %></td>
+  </tr>
+  <tr>
+    <td><%= image_tag('camera.png', width: '30') %>&nbsp; </td>
+  </tr>
+  <tr>
+    <td><%= image_tag(@flight.photo1.url) if @flight.photo1.present? %></td>
+  </tr>
+  <tr>
+    <td><%= image_tag('camera.png', width: '30') %>&nbsp; </td>
+  </tr>
+  <tr>
+    <td><%= image_tag(@flight.photo2.url) if @flight.photo2.present? %></td>
+  </tr>
+  <tr>
+    <td><%= image_tag('camera.png', width: '30') %>&nbsp; </td>
+  </tr>
+  <tr>
+    <td><%= image_tag(@flight.photo3.url) if @flight.photo3.present? %></td>
+  </tr>
+</table>
+  
+<br><br>
 <h2>コメント</h2>
 <% @comments.each do |comment| %>
-<div class = "flight">
 <hr>
-ユーザー名:<%= comment.user.name %><br>
-コメント:<%= comment.content %>
-<% if current_user && current_user.id == comment.user.id %><br>
-<%= link_to "削除", flight_comments_path(flight_id: @flight, id: comment.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %>
+  <p><%= image_tag('passport.png', width: '30') %>&nbsp; <%= comment.user.name %></p>
+  <p><%= image_tag('comment.png', width: '30') %>&nbsp; <%= comment.content %></p>
+  <p><% if current_user && current_user.id == comment.user.id %>
+    <%= link_to image_tag('garbage.png', width: '30'), flight_comments_path(flight_id: @flight, id: comment.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %></p>
+  <% end %>
+  <hr>
 <% end %>
-<% end %>
-</div>
 
-<hr>
 <%= form_for([@flight, @comment]) do |f| %>
 <%= f.text_field :content %>
 <%= f.submit "コメントする" %>
 <% end %>
+</body>
