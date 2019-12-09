@@ -4,8 +4,11 @@ class FlightsController < ApplicationController
   before_action :ensure_correct_user, only:[:edit, :update, :destroy]
 	
   def index
+  	@flights = Flight.all
     @q = Flight.ransack(params[:q])
-	@flights = @q.result(distinct: true)
+  	if params[:q].present?
+	  @flights = @q.result(distinct: true)
+    end
   end
 
   def new
