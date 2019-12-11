@@ -7,10 +7,13 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
-
-  attributes:
-    flight:
+    models:
       departure_airport: 出発空港
+    attributes:
+      flight:
+        departure_airport: 出発空港
+        arrival_airport: 到着空港
+        airline: 航空会社
 
   views:
     departure_airport: 出発空港
