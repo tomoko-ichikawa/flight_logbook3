@@ -1,4 +1,6 @@
 class Flight < ApplicationRecord
+	validates :departure_airport, :arrival_airport, :airline, presence: true
+
 	belongs_to :user
 	has_many :favorites
 	has_many :comments
