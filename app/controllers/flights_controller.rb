@@ -54,6 +54,7 @@ class FlightsController < ApplicationController
 
   def confirm
 	@flight = Flight.new(flight_params)
+	@flight.user_id = current_user.id
 	render :new if @flight.invalid?
   end
 
