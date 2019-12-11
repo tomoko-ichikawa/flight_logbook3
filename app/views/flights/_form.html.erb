@@ -1,5 +1,19 @@
 <body class="new">
 <%= form_with(model: @flight,local: true, url: choose_new_or_edit) do |form| %>
+  
+  <% if @flight.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= @flight.errors.count %>件のエラーがあります。</h2>
+
+      <ul>
+      <% @flight.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
   <div class="boarding-pass">
     <div class = "airline">
       <%= form.label :"航空会社" %><%= form.text_field :airline %>
