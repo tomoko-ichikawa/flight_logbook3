@@ -30,6 +30,8 @@ RSpec.feature "フライト管理機能", type: :feature do
     # binding.pry
     fill_in "flight[airline]", with: "airline"
     click_button "登録する" #投稿入力画面のsubmitボタン
+
+    visit confirm_flights_path
     click_button "投稿する" #確認画面のSubmit
 
     # save_and_open_page
