@@ -5,7 +5,7 @@ RSpec.feature "フライト管理機能", type: :feature do
      @user_1 = FactoryBot.create(:user)
      @user_2 = FactoryBot.create(:admin_user)
 
-    FactoryBot.create(:flight, user: @user_2)
+    @flight1 = FactoryBot.create(:flight, user: @user_2)
     FactoryBot.create(:second_flight, user: @user_2)
     FactoryBot.create(:third_flight, user: @user_2)
   end
@@ -29,9 +29,9 @@ RSpec.feature "フライト管理機能", type: :feature do
     visit new_flight_path
     # binding.pry
     fill_in "flight[airline]", with: "airline"
+    fill_in "flight[departure_airport]", with: "成田"
+    fill_in "flight[arrival_airport]", with: "シンガポール"
     click_button "登録する" #投稿入力画面のsubmitボタン
-
-    visit confirm_flights_path
     click_button "投稿する" #確認画面のSubmit
 
     # save_and_open_page
