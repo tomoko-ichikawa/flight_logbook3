@@ -1,14 +1,14 @@
 require 'rails_helper'
 
 RSpec.feature "Users", type: :feature do
-  background do
-     @user_1 = FactoryBot.create(:user)
-     @user_2 = FactoryBot.create(:admin_user)
+  # background do
+  #    @user_1 = FactoryBot.create(:user)
+  #    @user_2 = FactoryBot.create(:admin_user)
 
-    FactoryBot.create(:flight, user: @user_2)
-    FactoryBot.create(:second_flight, user: @user_2)
-    FactoryBot.create(:third_flight, user: @user_2)
-  end
+  #   FactoryBot.create(:flight, user: @user_2)
+  #   FactoryBot.create(:second_flight, user: @user_2)
+  #   FactoryBot.create(:third_flight, user: @user_2)
+  # end
 
    def login_as_yohei
     visit user_session_path
@@ -25,12 +25,9 @@ RSpec.feature "Users", type: :feature do
     fill_in "user[password_confirmation]", with: "password"
     click_button "Sign up"
 
-    login_as_yohei
     visit users_path
-    fill_in "q[name_cont]", with: "yohei"
-    click_button "検索"
 
-  	expect(page).to have_content 'ユーザー一覧'
+    expect(page).to have_content 'yohei'
   end
 
   scenario "ログインが完了すると、投稿一覧画面に遷移すること" do
