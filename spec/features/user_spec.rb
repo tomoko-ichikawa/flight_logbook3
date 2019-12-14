@@ -25,7 +25,10 @@ RSpec.feature "Users", type: :feature do
     fill_in "user[password_confirmation]", with: "password"
     click_button "Sign up"
 
+    login_as_yohei
     visit users_path
+    fill_in "q[name_cont]", with: "yohei"
+    click_button "検索"
 
   	expect(page).to have_content 'ユーザー一覧'
   end
