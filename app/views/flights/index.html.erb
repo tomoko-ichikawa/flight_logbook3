@@ -1,4 +1,10 @@
 <br>
+
+<% if current_user.try(:admin?) %>
+ <h1>管理者</h1>
+<% else %>
+<% end %><br>
+
 <p><%= notice %></p>
 
 <table class="table">

@@ -90,3 +90,5 @@ gem 'unicorn' # アプリケーションサーバのunicorn
 gem 'mini_racer', platforms: :ruby # デプロイ時に必要
 gem 'ed25519'
 gem 'bcrypt_pbkdf'
+gem 'rails_admin', '~> 2.0'
+gem 'cancancan'
