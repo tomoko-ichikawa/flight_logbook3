@@ -9,8 +9,8 @@
 #                )
 # end
 
-# User.create!(name: "tomoko",
-# 	         email: "tomoko.air.tokyo@gmail.com",
-# 	         password: ENV["password"],
-# 	         password_confirmation: ENV["password_confirmation"],
-# 	         admin: true)
+User.create!(name: "tomoko",
+	         email: "tomoko.air.tokyo@gmail.com",
+	         password: ENV["password"],
+	         password_confirmation: ENV["password_confirmation"],
+	         admin: true)
