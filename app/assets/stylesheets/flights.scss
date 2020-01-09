@@ -52,7 +52,7 @@ header {
 }
 
 .table {
-  width: 960px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -80,7 +80,7 @@ footer {
   min-width: 960px;
 }
 
-/* v/f/s 上 */
+/* v/f/show 上 */
 .boarding-pass {
   width: 100%;
   margin: 30px;
@@ -118,7 +118,7 @@ footer {
   border-bottom: inset 3px #000000;
 }
 
-/* v/f/s 下 */
+/* v/f/show 下 */
 .show_flight {
   border-collapse: collapse;
   border-spacing: 0;
