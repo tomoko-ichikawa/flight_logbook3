@@ -57,6 +57,18 @@ class ContactsController < ApplicationController
     end
   end
 
+  def confirm
+    @contact = Contact.new(contact_params)
+    @contact.user_id = current_user.id
+    render :new if @contact.invalid?
+  end
+
+  def thanks
+    @contact = Contact.new(contact_params)
+    ContactMailer.received_email(@contact).deliver
+    render :thanks
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
