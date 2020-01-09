@@ -99,7 +99,7 @@
       <td><% if @flight.favorited_by?(current_user) %>
         <%= link_to image_tag('heart.png', width: '20'), flight_favorites_path(@flight.id), method: :delete %></td>
       <% else %>
-        <td><%= link_to image_tag('heart_w.png', width: '20'),flight_favorites_path(flight.id), method: :post %></td>
+        <td><%= link_to image_tag('heart_w.png', width: '20'),flight_favorites_path(@flight.id), method: :post %></td>
       <% end %>
     <% end %>
     <td><%= @flight.favorites.count %></td>

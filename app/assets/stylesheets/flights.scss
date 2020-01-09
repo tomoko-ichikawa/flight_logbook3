@@ -23,6 +23,7 @@ ul {
 header {
   width: 100%;
   height: 100%;
+  padding: 10px 0 10px 0;
   background-color: #00266b;
 }
 
@@ -138,6 +139,10 @@ footer {
   width: 100%;
 }
 
+.boarding-pass2 td {
+  height: 40px
+}
+
 .passenger_name {
   font-weight: 700;
   font-size: 100%;
@@ -154,6 +159,7 @@ footer {
   font-weight: 700;
   border-bottom: inset 3px #000000;
   margin: 10px 0;
+  padding: 15px;
 }
 
 /* v/f/show 下 */

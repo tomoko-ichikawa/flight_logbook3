@@ -13,6 +13,6 @@
 		<p><%= image_tag user.icon.to_s %></p>
 	</div>
 	<p><span><%= image_tag('passport.png', width: '20') %>&nbsp; 名 前　</span><%= link_to user.name, user_path(user.id) %></p>
-	<p><span><%= image_tag('mail.png', width: '20') %>&nbsp; email　</span><%= link_to user.email, user_path(user.id) %></p>
+	<!-- <p><span><%= image_tag('mail.png', width: '20') %>&nbsp; email　</span><%= link_to user.email, user_path(user.id) %></p> -->
 	<hr>
 <% end %>
