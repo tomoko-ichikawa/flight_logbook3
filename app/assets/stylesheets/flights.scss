@@ -1,5 +1,6 @@
-/* v/f/i */
+/* v/f/index */
 body {
+  width: 100%;
 	margin: 0;
 	padding: 0;
 	font-size: 10px;
@@ -22,9 +23,7 @@ ul {
 header {
   width: 100%;
   height: 100%;
-  margin: 0 auto;
   background-color: #00266b;
-  
 }
 
 .logo {
@@ -51,9 +50,29 @@ header {
   text-decoration: none;
 }
 
-.table {
+.indextable {
   width: 100%;
   margin: 0 auto;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.indextable tr {
+  border-bottom: #d3d3d3 solid 1px;
+  height: 50px;
+}
+
+.th1 {
+  width: 16.4%;
+  height: 50px;
+}
+
+.th2 {
+  width: 6%;
+}
+
+.heart {
+  text-align: center;
 }
 
 ul {
@@ -61,11 +80,28 @@ ul {
 }
 
 input[type = "search"]{
-  width :100px;
+  width :50px;
 }
 
 input[type = "date"]{
-  width :100px;
+  width :50px;
+}
+
+.button {
+  display: inline-block;
+  padding: 0.3em 1em;
+  text-decoration: none;
+  color: #67c5ff;
+  a:link { color: #00266b; }
+  a:visited { color: #00266b; } 
+  border: solid 2px #00266b;
+  border-radius: 3px;
+  transition: .4s;
+}
+
+.button:hover{
+  background: #00266b;
+  color: #00266b;
 }
 
 footer {
@@ -83,7 +119,7 @@ footer {
 /* v/f/show 上 */
 .boarding-pass {
   width: 100%;
-  margin: 30px;
+  margin: 10px;
   display:inline-block;
   padding: 20px;
   border: 1px solid #3b5998; 
@@ -93,8 +129,9 @@ footer {
 
 .show .airline {
   font-weight: 700;
-  font-size: 200%;
+  font-size: 100%;
   text-align: right;
+  width: 100%;
 }
 
 .boarding-pass2 {
@@ -103,7 +140,7 @@ footer {
 
 .passenger_name {
   font-weight: 700;
-  font-size: 200%;
+  font-size: 100%;
   border-bottom: inset 5px #000000;
 }
 
@@ -116,14 +153,13 @@ footer {
   font-size: 100%;
   font-weight: 700;
   border-bottom: inset 3px #000000;
+  margin: 10px 0;
 }
 
 /* v/f/show 下 */
 .show_flight {
   border-collapse: collapse;
   border-spacing: 0;
-  padding: 20px;
-  margin: 30px;
   width: 100%;
 }
 
@@ -134,19 +170,18 @@ footer {
 .show_flight td {
   text-align: left;
   width: 25%;
-  margin: 15px;
+  margin: 15px 0;
   padding: 15px;
 }
 
-.show_flight2 {
+.show_flight_photo {
   border-collapse: collapse;
   border-spacing: 0;
-  padding: 20px;
-  margin: 30px;
   width: 100%;
+  margin: 10px 0;
 }
 
-.show_flight2 td {
+.show_flight_photo td {
   text-align: left;
   width: 25%;
   margin: 30px;
@@ -155,6 +190,10 @@ footer {
 
 .review {
   border-bottom: solid 1px #eee;
+}
+
+.edit {
+  margin: 10px 0;
 }
 
 /* v/f/_f */
@@ -167,5 +206,15 @@ footer {
 }
 
 input[type = "text"]{
-  width :100px;
+  width :50px;
+}
+
+.review input[type = "text"]{
+  width :400px;
+  height :100px;
+}
+
+.comment input[type = "text"]{
+  width :400px;
+  height :100px;
 }

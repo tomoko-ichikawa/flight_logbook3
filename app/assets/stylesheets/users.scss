@@ -9,8 +9,7 @@
 .show_user {
   border-collapse: collapse;
   border-spacing: 0;
-  padding: 20px;
-  margin: 30px;
+ 
   width: 100%;
 }
 
@@ -35,4 +34,9 @@ h2 {
 
 h3 {
   font-family: 'Hiragino Maru Gothic ProN';
+}
+
+li{
+  display: inline;
+  list-style-type: none;
 }
