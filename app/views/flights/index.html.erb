@@ -15,7 +15,7 @@
 		<th><%= image_tag('airplane.png', width: '30') %>&nbsp; <%= sort_link(@q, :airline, "航空会社") %></th>
 		<th><%= image_tag('seat.png', width: '30') %>&nbsp; <%= sort_link(@q, :seat_class, "座席クラス") %></th>
 		<th><%= image_tag('calendar.png', width: '30') %>&nbsp; <%= sort_link(@q, :departure_date, "搭乗日") %></th>
-		<th>投稿者</th>
+		<!-- <th>投稿者</th> -->
 		<th colspan="5"></th>
 		</tr>
 		<tr>
@@ -38,7 +38,7 @@
 			<td><%= flight.airline %></td>
 			<td><%= flight.seat_class %></td>
 			<td><%= flight.departure_date %></td>
-			<td><%= flight.user.name %></td>
+			<!-- <td><%= flight.user.name %></td> -->
 
 			<% if user_signed_in? %>
 				<% if flight.favorited_by?(current_user) %>
@@ -51,8 +51,8 @@
 
 			<td><%= link_to image_tag('ticket.png', width: '50'), flight_path(flight.id) %></td>
 			<% if current_user && current_user.id == flight.user.id %>
-				<td><%= link_to image_tag('pencil.png', width: '30'),  edit_flight_path(flight.id) %></td>
-				<td><%= link_to image_tag('garbage.png', width: '30'), flight_path(flight.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+				<!-- <td><%= link_to image_tag('pencil.png', width: '30'),  edit_flight_path(flight.id) %></td>
+				<td><%= link_to image_tag('garbage.png', width: '30'), flight_path(flight.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td> -->
 			<% end %>
 			</tr>
 		<% end %>

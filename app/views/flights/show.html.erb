@@ -94,6 +94,22 @@
 </table>
   
 <br><br>
+<% if user_signed_in? %>
+  <% if @flight.favorited_by?(current_user) %>
+    <%= link_to image_tag('heart.png', width: '30'), flight_favorites_path(@flight.id), method: :delete %>
+  <% else %>
+    <%= link_to image_tag('heart_w.png', width: '30'),flight_favorites_path(flight.id), method: :post %>
+  <% end %>
+<% end %>
+<%= @flight.favorites.count %>&nbsp; 
+
+      <!-- <td><%= link_to image_tag('ticket.png', width: '50'), flight_path(@flight.id) %></td> -->
+<% if current_user && current_user.id == @flight.user.id %>
+  <%= link_to image_tag('pencil.png', width: '30'),  edit_flight_path(@flight.id) %></td>&nbsp; 
+  <%= link_to image_tag('garbage.png', width: '30'), flight_path(@flight.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
+<% end %>
+
+<br><br><br><br>    
 <h2>コメント</h2>
 <% @comments.each do |comment| %>
 <hr>
@@ -109,4 +125,5 @@
 <%= f.text_field :content %>
 <%= f.submit "コメントする" %>
 <% end %>
+
 </body>

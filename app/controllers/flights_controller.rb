@@ -31,6 +31,7 @@ class FlightsController < ApplicationController
   end
 
   def show
+  	@flights = Flight.all
 	@user = @flight.user
 	@comment = current_user.comments.build
 	@comments = @flight.comments
