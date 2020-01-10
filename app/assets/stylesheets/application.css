@@ -60,10 +60,6 @@ body {
 .field input[autofocus=autofocus]:focus {
 	border-color: #00266b;
 }
-
-.field input[autofocus=autofocus] {
-	padding-left: 40px;
-}
 /*ここまで*/
 
 .field input[autocomplete=current-password] {
@@ -82,10 +78,6 @@ body {
 	border-color: #00266b;
 }
 
-.field input[autocomplete=current-password] {
-	padding-left: 40px;
-}
-
 .field input[autocomplete=new-password] {
 	font: 15px/24px sans-serif;
 	box-sizing: border-box;
@@ -100,10 +92,6 @@ body {
 
 .field input[autocomplete=new-password]:focus {
 	border-color: #00266b;
-}
-
-.field input[aautocomplete=new-password] {
-	padding-left: 40px;
 }
 
 input[type = "submit"]{

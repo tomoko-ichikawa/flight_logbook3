@@ -9,7 +9,6 @@
 	box-sizing: border-box;
 	width: 50%;
 	margin: 8px 0;
-	padding: 0.3em;
 	transition: 0.3s;
 	border: 1px solid #1b2538;
 	border-radius: 4px;
@@ -18,10 +17,6 @@
 
 .field input[type=text]:focus {
 	border-color: #00266b;
-}
-
-.field input[type=text] {
-	padding-left: 40px;
 }
 
 .field textarea {
@@ -38,10 +33,6 @@
 
 .field textarea:focus {
 	border-color: #00266b;
-}
-
-.field textarea {
-	padding-left: 40px;
 }
 
 .actions {
