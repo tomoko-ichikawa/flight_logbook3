@@ -1,0 +1,82 @@
+.field {
+	position: relative;
+	width: 80%;
+	margin: 40px 3%;
+}
+
+.field input[type=text] {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 50%;
+	margin: 8px 0;
+	padding: 0.3em;
+	transition: 0.3s;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+	outline: none;
+}
+
+.field input[type=text]:focus {
+	border-color: #00266b;
+}
+
+.field input[type=text] {
+	padding-left: 40px;
+}
+
+.field textarea {
+	font: 15px/24px sans-serif;
+	box-sizing: border-box;
+	width: 100%;
+	margin: 8px 0;
+	padding: 0.3em;
+	transition: 0.3s;
+	border: 1px solid #1b2538;
+	border-radius: 4px;
+	outline: none;
+}
+
+.field textarea:focus {
+	border-color: #00266b;
+}
+
+.field textarea {
+	padding-left: 40px;
+}
+
+.actions {
+	position: relative;
+	margin: 40px 3%;
+    border-radius : 10%;
+}
+
+input[type = "submit"]{
+  display       : inline-block;
+  border-radius : 5%;          /* 角丸       */
+  font-size     : 13pt;        /* 文字サイズ */
+  text-align    : center;      /* 文字位置   */
+  cursor        : pointer;     /* カーソル   */
+  margin: 8px 0;
+  padding: 0.3em;
+  background    : #ffffff;     /* 背景色     */
+  color         : #00266b;     /* 文字色     */
+  line-height   : 1em;         /* 1行の高さ  */
+  transition    : .3s;         /* なめらか変化 */
+  border        : 2px solid #000066;    /* 枠の指定 */
+  border: 1px solid #1b2538;
+  border-radius: 4px;
+  outline: none;
+}
+
+.profile {
+	position: relative;
+	width: 80%;
+	margin: 40px 3%;
+}
+
+.back {
+	font: 15px/24px sans-serif;
+	position: relative;
+	width: 80%;
+	margin: 40px 3%;
+}

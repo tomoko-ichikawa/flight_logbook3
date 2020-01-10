@@ -4,30 +4,31 @@
   <%= render "devise/shared/error_messages", resource: resource %>
 
   <div class ="circle-icon">
-      <%= f.label :icon %><br />
-      <%= f.file_field :icon %>
+      <p>icon</p>
+      <label class=icon_label><%= f.label :icon %></label>
+      <p class=icon_image><%= f.file_field :icon %></p>
   </div>
 
   <div class ="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name, autofocus: true %>
   </div>
 
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email %>
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
 
   <div class="field">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
+      <em>(<%= @minimum_password_length %>文字以上)</em>
+    <% end %><br>
     <%= f.password_field :password, autocomplete: "new-password" %>
   </div>
 
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 

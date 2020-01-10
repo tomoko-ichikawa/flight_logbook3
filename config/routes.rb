@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'comments/destroy'
   get 'favorites/create'
   get 'favorites/destroy'
+  get 'contacts/create'
+  get 'contacts/destroy'
 
 	devise_for :users, controllers: {
 		registrations: 'users/registrations'

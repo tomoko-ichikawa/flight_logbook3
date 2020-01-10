@@ -7,6 +7,10 @@
 
 <p><%= notice %></p>
 
+<div class="button">
+  <%= link_to "新しいフライトログを投稿する", new_flight_path%>
+</div>
+
 <table class="indextable">
 	<thead>
 		<tr>
@@ -28,7 +32,7 @@
 			<th><%= f.search_field :airline_cont %></th>
 			<th><%= f.search_field :seat_class_cont %></th>
 			<th><%= f.date_field :departure_date_eq, include_blank: true %></th>
-			<th><%= f.submit "検索" %></th>
+			<th><%= image_submit_tag "search.png" , width: '25' %></th>
 			<th></th>
 			<th></th>
 		<% end %>
@@ -62,8 +66,4 @@
 		<% end %>
 	</tbody>
 </table>
-
 <br>
-<div class="button">
-  <%= link_to "新しいフライトログを投稿する", new_flight_path%>
- </div>

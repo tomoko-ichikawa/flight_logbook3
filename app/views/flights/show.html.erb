@@ -114,23 +114,24 @@
 
 <br>
 <table>  
-<h2>コメント</h2>
-<% @comments.each do |comment| %>
-<hr>
-  <p><%= image_tag('passport.png', width: '20') %>&nbsp; <%= comment.user.name %></p>
-  <p><%= image_tag('comment.png', width: '20') %>&nbsp; <%= comment.content %></p>
-  <p><% if current_user && current_user.id == comment.user.id %>
-    <%= link_to image_tag('garbage.png', width: '20'), flight_comments_path(flight_id: @flight, id: comment.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %></p>
-  <% end %>
+  <h2>コメント</h2>
+  <% @comments.each do |comment| %>
   <hr>
-<% end %>
+    <p><%= image_tag('passport.png', width: '20') %>&nbsp; <%= comment.user.name %></p>
+    <p><%= image_tag('comment.png', width: '20') %>&nbsp; <%= comment.content %></p>
+    <p><% if current_user && current_user.id == comment.user.id %>
+      <%= link_to image_tag('garbage.png', width: '20'), flight_comments_path(flight_id: @flight, id: comment.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %></p>
+    <% end %>
+    <hr>
+  <% end %>
 
-<div class="comment">
-<%= form_for([@flight, @comment]) do |f| %>
-  <%= f.text_field :content %>
-  <br><%= f.submit "コメントする" %>
-<% end %>
-</div>
+  <div class="comment">
+  <%= form_for([@flight, @comment]) do |f| %>
+    <%= f.text_field :content %>
+    <br><%= f.submit "コメントする" %>
+    <br>
+  <% end %>
+  </div>
 </table>
 
 </body>

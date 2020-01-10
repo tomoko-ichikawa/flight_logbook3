@@ -53,9 +53,10 @@ header {
 
 .indextable {
   width: 100%;
-  margin: 0 auto;
   border-collapse: collapse;
   table-layout: fixed;
+  position: relative;
+  margin: 40px 3%;
 }
 
 .indextable tr {
@@ -200,6 +201,10 @@ footer {
 
 .edit {
   margin: 10px 0;
+}
+
+.comment {
+  margin: 10px
 }
 
 /* v/f/_f */
