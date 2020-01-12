@@ -2,9 +2,9 @@ class FlightsController < ApplicationController
   before_action :set_flight, only: [:show, :edit, :update, :destroy, :ensure_correct_user]
   before_action :authenticate_user!, except:[:index]
   before_action :ensure_correct_user, only:[:edit, :update, :destroy]
-	
+
   def index
-  	@flights = Flight.all
+  	@flights = Flight.all.order(created_at: :desc)
     @q = Flight.ransack(params[:q])
   	if params[:q].present?
 	  @flights = @q.result(distinct: true)

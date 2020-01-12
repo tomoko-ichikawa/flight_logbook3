@@ -1,13 +1,24 @@
 class FavoritesController < ApplicationController
+  before_action :set_flight, only: [:create, :destroy]
+
   def create
-  	favorite = current_user.favorites.build(flight_id: params[:flight_id])
-  	favorite.save
-  	redirect_to flights_path
+  	@favorite = current_user.favorites.create(favorite_params)
+    redirect_to flight_path(@flight)
   end
 
   def destroy
-  	favorite = Favorite.find_by(flight_id: params[:flight_id], user_id: current_user.id)
-  	favorite.destroy
-  	redirect_to flights_path
-   end
+  	@favorite = Favorite.find_by(favorite_params, user_id: current_user.id)
+    @favorite.destroy
+    redirect_to flight_path(@flight)
+  end
+ 
+  private
+
+  def set_flight
+    @flight = Flight.find(params[:flight_id])
+  end
+
+  def favorite_params
+    params.permit(:flight_id)
+  end
 end

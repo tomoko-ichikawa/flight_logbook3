@@ -187,6 +187,9 @@ GEM
     kaminari-activerecord (1.1.1)
       activerecord
       kaminari-core (= 1.1.1)
+    kaminari-bootstrap (3.0.1)
+      kaminari (>= 0.13.0)
+      rails
     kaminari-core (1.1.1)
     kgio (2.11.2)
     launchy (2.4.3)
@@ -410,6 +413,8 @@ DEPENDENCIES
   fog-aws
   jbuilder (~> 2.5)
   jquery-ui-rails
+  kaminari
+  kaminari-bootstrap
   launchy
   letter_opener_web
   listen (>= 3.0.5, < 3.2)
