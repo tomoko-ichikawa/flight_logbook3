@@ -19,7 +19,7 @@
         <td colspan="2">Airline<br>航空会社</td>
         <td colspan="2"><%= form.text_field :airline %></td>
       </tr>
-      <tr class="new_airline">
+      <tr class="new_seatclass">
         <td colspan="2">Seat class<br>座席クラス</td>
         <td colspan="2"><%= form.text_field :seat_class %></td>
       </tr>
@@ -44,7 +44,7 @@
       </tr>
       <tr>
         <td colspan="2">Boarding time<br>搭乗時間</td>
-        <td colspan="2" class="details"><%= form.datetime_select :actual_departure_time %></td>
+        <td colspan="2"><%= form.datetime_select :actual_departure_time %></td>
       </tr>
     </table>
   </div>
@@ -96,6 +96,6 @@
   </div>
   
   <br>
-  <%= form.submit "投稿する" %>
+  <%= form.submit "投稿内容を確認する" %>
 <% end %>
 </body>

@@ -124,3 +124,10 @@ input[type = "submit"]{
 	width: 80%;
 	margin: 40px 3%;
 }
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.bootstrap-date-only-width {
+  width: auto;
+}

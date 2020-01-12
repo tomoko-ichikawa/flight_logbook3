@@ -7,7 +7,8 @@
   <hr>
   <table class="boarding-pass2">
     <tr>
-      <td colspan="4" class="passenger_name"><%= @flight.user.name %></td>
+      <td colspan="4" class="passenger_name">
+          <%= link_to @user.name, user_path(@flight.user_id) %>
     </tr>
     <tr> 
       <td>Flight</td>

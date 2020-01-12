@@ -40,3 +40,25 @@ li{
   display: inline;
   list-style-type: none;
 }
+
+.indextable {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  position: relative;
+  margin: 40px 0;
+}
+
+.show input[type = "search"] {
+  width: 100px;
+}
+
+input[type="search"] {
+  font: 15px/24px sans-serif;
+  box-sizing: border-box;
+  margin: 8px 0;
+  transition: 0.3s;
+  border: 1px solid #00266b;
+  border-radius: 4px;
+  outline: none;
+}

@@ -64,20 +64,20 @@
 
 <table class = "show_flight">
   <tr>
-    <td class = "show_flight_td"><%= image_tag('time.png', width: '20') %>&nbsp; 到着時間</td> <td><%= @flight.actual_arrival_time.strftime("%m") %>月<%= @flight.actual_arrival_time.strftime("%d") %>日<br><%= @flight.actual_arrival_time.strftime("%H:%M") %></td> 
-    <td class = "show_flight_td"><%= image_tag('airplane2.png', width: '20') %>&nbsp; 機種</td> <td><%= @flight.aircraft_type %></td>
+    <td class = "show_flight_td"><%= image_tag('time.png', width: '20') %><br>到着時間</td> <td><%= @flight.actual_arrival_time.strftime("%m") %>月<%= @flight.actual_arrival_time.strftime("%d") %>日<br><%= @flight.actual_arrival_time.strftime("%H:%M") %></td> 
+    <td class = "show_flight_td"><%= image_tag('airplane2.png', width: '20') %><br>機種</td> <td><%= @flight.aircraft_type %></td>
   </tr>
   <tr>
-    <td class = "show_flight_td"><%= image_tag('hourglass.png', width: '20') %>&nbsp;  飛行時間</td> <td><%= @flight.flight_time %></td> 
-    <td class = "show_flight_td"><%= image_tag('departure.png', width: '20') %>&nbsp; 飛行距離</td> <td><%= @flight.flight_mile %></td>
+    <td class = "show_flight_td"><%= image_tag('hourglass.png', width: '20') %><br> 飛行時間</td> <td><%= @flight.flight_time %></td> 
+    <td class = "show_flight_td"><%= image_tag('departure.png', width: '20') %><br>飛行距離</td> <td><%= @flight.flight_mile %></td>
   </tr>
   <tr>
-    <td class = "show_flight_td"><%= image_tag('en.png', width: '20') %>&nbsp; 運賃</td> <td><%= @flight.fare %></td class = "show_flight_td">
-    <td class = "show_flight_td"><%= image_tag('seat.png', width: '20') %>&nbsp; 予約ｸﾗｽ</td> <td> <%= @flight.booking_class %></td>
+    <td class = "show_flight_td"><%= image_tag('en.png', width: '20') %><br>運賃</td> <td><%= @flight.fare %></td class = "show_flight_td">
+    <td class = "show_flight_td"><%= image_tag('seat.png', width: '20') %><br>予約ｸﾗｽ</td> <td> <%= @flight.booking_class %></td>
   </tr>
   <tr>
-    <td class = "show_flight_td"><%= image_tag('airplane3.png', width: '20') %>&nbsp; 獲得ﾏｲﾙ</td><td><%= @flight.getting_mile %></td>
-    <td class = "show_flight_td_p"><%= image_tag('p.png', width: '20') %>&nbsp; 獲得ﾎﾟｲﾝﾄ</td> <td><%= @flight.getting_point %></td>
+    <td class = "show_flight_td"><%= image_tag('airplane3.png', width: '20') %><br>獲得ﾏｲﾙ</td><td><%= @flight.getting_mile %></td>
+    <td class = "show_flight_td_p"><%= image_tag('p.png', width: '20') %><br>獲得ﾎﾟｲﾝﾄ</td> <td><%= @flight.getting_point %></td>
   </tr>
 </table>
 

@@ -42,6 +42,9 @@ ja:
     - 10月
     - 11月
     - 12月
+    abbr_day_names:
+    - 1日
+    - 2日
     day_names:
     - 日曜日
     - 月曜日

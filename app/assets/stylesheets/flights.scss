@@ -1,9 +1,9 @@
 /* v/f/index */
 body {
   width: 100%;
-	margin: 0;
+  margin: 0;
 	padding: 0;
-	font-size: 9px;
+	font-size: 10px;
 	line-height: 2;
 }
 
@@ -56,16 +56,33 @@ header {
   border-collapse: collapse;
   table-layout: fixed;
   position: relative;
-  margin: 40px 0;
+  margin: 40px 3%;
+}
+
+input[type="search"] {
+  font: 15px/24px sans-serif;
+  box-sizing: border-box;
+  margin: 8px 0;
+  transition: 0.3s;
+  border: 1px solid #00266b;
+  border-radius: 4px;
+  outline: none;
+}
+
+.indextable input[include_blank="true"] {
+  font: 15px sans-serif;
+  box-sizing: border-box;
+  width: 50px;
+  margin: 8px 0;
+  transition: 0.3s;
+  border: 1px solid #00266b;
+  border-radius: 4px;
+  outline: none;
 }
 
 .indextable tr {
   border-bottom: #d3d3d3 solid 1px;
   height: 50px;
-}
-
-.search {
-  text-align: center;
 }
 
 .th1 {
@@ -87,26 +104,10 @@ ul {
 
 input[type = "search"]{
   width :50px;
-  font: 15px/24px sans-serif;
-  box-sizing: border-box;
-  width: 50%;
-  margin: 8px 0;
-  transition: 0.3s;
-  border: 1px solid #00266b;
-  border-radius: 4px;
-  outline: none;
 }
 
 input[type = "date"]{
   width :50px;
-  font: 15px/24px sans-serif;
-  box-sizing: border-box;
-  width: 50%;
-  margin: 8px 0;
-  transition: 0.3s;
-  border: 1px solid #00266b;
-  border-radius: 4px;
-  outline: none;
 }
 
 .button {
@@ -164,16 +165,16 @@ footer {
   height: 40px
 }
 
-.show .passenger_name {
+.passenger_name {
   font-weight: 700;
   font-size: 100%;
-  border-bottom: inset 2px #000000;
+  border-bottom: inset 3px #000000;
 }
 
 .show .flight_detail {
   font-size: 100%;
   font-weight: 700;
-  border-bottom: inset 2px #000000;
+  border-bottom: inset 3px #000000;
   margin: 10px 0;
   padding: 15px;
 }
@@ -185,7 +186,11 @@ footer {
   width: 100%;
 }
 
-
+.show_flight2 {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
 .show_flight tr {
   border-bottom: solid 1px #eee;
 }
@@ -195,12 +200,7 @@ footer {
   width: 25%;
   margin: 15px 0;
   padding: 15px;
-}
-
-.show_flight2 {
-  border-collapse: collapse;
-  border-spacing: 0;
-  width: 100%;
+  font-size: 12px;
 }
 
 .show_flight2 td {
@@ -208,6 +208,7 @@ footer {
   width: 25%;
   margin: 15px 0;
   padding: 15px;
+  font-size: 12px;
 }
 
 .show_flight_photo {
@@ -237,66 +238,69 @@ footer {
 }
 
 /* v/f/_f */
-.new {
-  width: 100%;
-	margin: 0;
-	padding: 0;
-	font-size: 10px;
-	line-height: 2;
-}
-
 .boarding-pass {
-  margin: 40px 0;
+  margin: 15px 0;
 }
 
-.boarding-pass input[type=text] {
-	font: 15px/24px sans-serif;
-	box-sizing: border-box;
-	width: 50%;
-	margin: 8px 0;
-	transition: 0.3s;
-	border: 1px solid #00266b;
-	border-radius: 4px;
-	outline: none;
+.new_seatclass {
+  border-bottom: 1px solid #00266b;
 }
 
-.boarding-pass2 input[type=text] {
-	font: 15px/24px sans-serif;
-	box-sizing: border-box;
-	width: 50%;
-	margin: 8px 0;
-	transition: 0.3s;
-	border: 1px solid #00266b;
-	border-radius: 4px;
-	outline: none;
-}
-
-.new_airline {
-  border-bottom: solid 1px  #00266b;
-}
-
-.new input[type = "text"] {
+.new input[type = "text"], input[type = "date"] {
   width: 100px;
+  height: 30px;
+  font: 15px/24px sans-serif;
+  box-sizing: border-box;
+  margin: 8px 0;
+  transition: 0.3s;
+  border: 1px solid #00266b;
+  border-radius: 4px;
+  outline: none;
 }
 
-.new input[type = "date"] {
-  width: 100px
+select[id = "flight_actual_departure_time_1i"],
+select[id = "flight_actual_departure_time_2i"],
+select[id = "flight_actual_departure_time_3i"],
+select[id = "flight_actual_departure_time_4i"],
+select[id = "flight_actual_departure_time_5i"],
+select[id = "flight_actual_arrival_time_1i"],
+select[id = "flight_actual_arrival_time_2i"],
+select[id = "flight_actual_arrival_time_3i"],
+select[id = "flight_actual_arrival_time_4i"],
+select[id = "flight_actual_arrival_time_5i"]{
+  width: 35px;
+  height: 30px;
+  font: 10px/24px sans-serif;
+  box-sizing: border-box;
+  margin: 8px 0;
+  transition: 0.3s;
+  border: 1px solid #00266b;
+  border-radius: 4px;
+  outline: none;
 }
 
 .review input[type = "text"]{
-  width :400px;
-  height :100px;
+  font: 15px/24px sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100px;
+  margin: 8px 0;
+  padding: 0.3em;
+  transition: 0.3s;
+  border: 1px solid #00266b;
+  border-radius: 4px;
+  outline: none;
 }
 
 .comment input[type = "text"]{
-  width :400px;
-  height :100px;
-}
-
-.show_flight_td {
-  font-size: 11px;
-}
-
-.show_flight_td_p {
-  font-size: 10px;
+  font: 15px/24px sans-serif;
+  box-sizing: border-box;
+  width: 80%;
+  height: 100px;
+  margin: 8px 0;
+  padding: 0.3em;
+  transition: 0.3s;
+  border: 1px solid #00266b;
+  border-radius: 4px;
+  outline: none;
 }

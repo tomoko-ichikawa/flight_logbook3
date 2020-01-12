@@ -17,7 +17,7 @@
 	  <th class="th1"><%= image_tag('departure.png', width: '20') %><br><%= sort_link(@q, :departure_airport, "出発空港") %></th>
 	  <th class="th1"><%= image_tag('landing.png', width: '20') %><br><%= sort_link(@q, :arrival_airport, "到着空港") %></th>
 	  <th class="th1"><%= image_tag('airplane.png', width: '20') %><br><%= sort_link(@q, :airline, "航空会社") %></th>
-	  <th><%= image_tag('seat.png', width: '20') %><br><%= sort_link(@q, :seat_class, "座席クラス") %></th>
+	  <th class="th1"><%= image_tag('seat.png', width: '20') %><br><%= sort_link(@q, :seat_class, "座席") %></th>
 	  <th class="th1"><%= image_tag('calendar.png', width: '20') %><br><%= sort_link(@q, :departure_date, "搭乗日") %></th>
 			<!-- <th>投稿者</th> -->
 		<th class="th2"></th>
@@ -32,7 +32,7 @@
 		  <th><%= f.search_field :airline_cont %></th>
 		  <th><%= f.search_field :seat_class_cont %></th>
 		  <th><%= f.date_field :departure_date_eq, include_blank: true %></th>
-		  <th class="search"><%= image_submit_tag "search.png" , width: '25' %></th>
+		  <th class="search"><%= image_submit_tag "search.png" , width: '20' %></th>
 		  <th class="search"><%= link_to "http://www.flightlogbook.net/flights" do %><%= image_tag('batsu.png', width: '20') %><% end %></th>
 		  <th></th>
 		<% end %>
@@ -59,7 +59,7 @@
 
 		  <td class="heart"><%= flight.favorites.count %></td>
 
-		  <td><%= link_to image_tag('ticket.png', width: '25'), flight_path(flight.id) %></td>
+		  <td><%= link_to image_tag('ticket.png', width: '20'), flight_path(flight.id) %></td>
 			<!--<% if current_user && current_user.id == flight.user.id %>
 				 <td><%= link_to image_tag('pencil.png', width: '30'),  edit_flight_path(flight.id) %></td>
 				<td><%= link_to image_tag('garbage.png', width: '30'), flight_path(flight.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td> 
