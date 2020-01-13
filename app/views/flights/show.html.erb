@@ -8,7 +8,7 @@
   <table class="boarding-pass2">
     <tr>
       <td colspan="4" class="passenger_name">
-          <%= link_to @user.name, user_path(@flight.user_id) %>
+        <%= link_to @user.name, user_path(@flight.user_id) %>
     </tr>
     <tr> 
       <td class="title">Flight</td>
@@ -112,7 +112,7 @@
 
 <br>
 <table>  
-  <h2>コメント</h2>
+  <h2>&nbsp;コメント</h2>
   <% @comments.each do |comment| %>
   <hr>
     <p><%= image_tag('passport.png', width: '20') %>&nbsp; <%= comment.user.name %></p>

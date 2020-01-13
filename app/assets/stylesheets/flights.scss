@@ -106,6 +106,11 @@ footer {
   word-break:break-all;
 }
 
+.passenger_name {
+  a:link { color: #333333; }
+  a:visited { color: #333333; } 
+}
+
 .show .airline {
   font-weight: 700;
   font-size: 100%;
@@ -260,7 +265,7 @@ select[id = "flight_actual_arrival_time_5i"]{
 .comment input[type = "text"]{
   font: 15px/24px sans-serif;
   box-sizing: border-box;
-  width: 80%;
+  width: 100%;
   height: 100px;
   margin: 8px 0;
   padding: 0.3em;
