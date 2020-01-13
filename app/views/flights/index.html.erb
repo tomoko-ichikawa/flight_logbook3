@@ -1,7 +1,7 @@
+<div class="flgihts_index">
 <br>
-
 <% if current_user.try(:admin?) %>
- <h1>管理者</h1>
+ <h1>&nbsp;管理者</h1>
 <% else %>
 <% end %><br>
 
@@ -17,7 +17,7 @@
 	  <th class="th1"><%= image_tag('departure.png', width: '20') %><br><%= sort_link(@q, :departure_airport, "出発空港") %></th>
 	  <th class="th1"><%= image_tag('landing.png', width: '20') %><br><%= sort_link(@q, :arrival_airport, "到着空港") %></th>
 	  <th class="th1"><%= image_tag('airplane.png', width: '20') %><br><%= sort_link(@q, :airline, "航空会社") %></th>
-	  <th class="th1"><%= image_tag('seat.png', width: '20') %><br><%= sort_link(@q, :seat_class, "座席") %></th>
+	  <th class="th1"><%= image_tag('seat.png', width: '20') %><br><%= sort_link(@q, :seat_class, "座席ｸﾗｽ") %></th>
 	  <th class="th1"><%= image_tag('calendar.png', width: '20') %><br><%= sort_link(@q, :departure_date, "搭乗日") %></th>
 			<!-- <th>投稿者</th> -->
 		<th class="th2"></th>
@@ -51,9 +51,9 @@
 		  <!-- <td class="heart"><%= link_to image_tag('heart.png', width: '20') %></td> -->
 		  <% if user_signed_in? %>
 			<% if flight.favorited_by?(current_user) %>
-			  <td class="heart"><%= link_to image_tag('heart.png', width: '20'), flight_favorites_path(flight.id), method: :delete %></td>
+			  <td class="heart"><%= link_to image_tag('heart.png', width: '18'), flight_favorites_path(flight.id), method: :delete %></td>
 			<% else %>
-			  <td class="heart"><%= link_to image_tag('heart_w.png', width: '20'),flight_favorites_path(flight.id), method: :post %></td>
+			  <td class="heart"><%= link_to image_tag('heart_w.png', width: '18'),flight_favorites_path(flight.id), method: :post %></td>
 			<% end %>
 		  <% end %>
 
@@ -69,3 +69,4 @@
 	</tbody>
 </table>
 <br>
+</div>

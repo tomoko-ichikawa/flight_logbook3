@@ -1,6 +1,13 @@
+._form {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  line-height: 2;
+}
+
 .field {
 	position: relative;
-	width: 80%;
+	width: 100%;
 	margin: 40px 3%;
 }
 
@@ -61,13 +68,19 @@ input[type = "submit"]{
 
 .profile {
 	position: relative;
-	width: 80%;
+	width: 100%;
 	margin: 40px 3%;
+}
+
+.twitter-timeline {
+  position: relative;
+  width: 80%;
+  margin: 40px 3%;
 }
 
 .back {
 	font: 15px/24px sans-serif;
 	position: relative;
-	width: 80%;
+	width: 100%;
 	margin: 40px 3%;
 }

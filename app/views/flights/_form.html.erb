@@ -16,35 +16,37 @@
   <div class="boarding-pass">
     <table class="boarding-pass2">
       <tr>
-        <td colspan="2">Airline<br>航空会社</td>
-        <td colspan="2"><%= form.text_field :airline %></td>
+        <td>Airline<br>航空会社</td>
+        <td><%= form.text_field :airline %></td>
       </tr>
       <tr class="new_seatclass">
-        <td colspan="2">Seat class<br>座席クラス</td>
-        <td colspan="2"><%= form.text_field :seat_class %></td>
+        <td>Seat class<br>座席クラス</td>
+        <td><%= form.text_field :seat_class %></td>
       </tr>
         <td></td>
       <tr>
-        <td colspan="2">From<br>出発空港</td>
-        <td colspan="2"><%= form.text_field :departure_airport %></td>
+        <td>From<br>出発空港</td>
+        <td><%= form.text_field :departure_airport %></td>
       </tr>
       <tr>
-        <td colspan="2">To<br>到着空港</td>
-        <td colspan="2"><%= form.text_field :arrival_airport %></td>
+        <td>To<br>到着空港</td>
+        <td><%= form.text_field :arrival_airport %></td>
       </tr>
       <tr>
-        <td colspan="2">Flight<br>便名</td>
+        <td>Flight<br>便名</td>
         <td><%= form.text_field :flight_number %></td>
-        <td class="title">&emsp;Seat<br>&emsp;座席番号</td>
       </tr>
       <tr>
-        <td colspan="2">Date<br>搭乗日</td>
+        <td>Date<br>搭乗日</td>
         <td><%= form.date_field :departure_date %></td>
-        <td class="details">&emsp;<%= form.text_field :seat_number %></td>
       </tr>
       <tr>
-        <td colspan="2">Boarding time<br>搭乗時間</td>
-        <td colspan="2"><%= form.datetime_select :actual_departure_time %></td>
+        <td class="title">Seat<br>座席番号</td>
+        <td class="details"><%= form.text_field :seat_number %></td>
+      </tr>
+      <tr>
+        <td>Boarding time<br>搭乗時間</td>
+        <td><%= form.datetime_select :actual_departure_time %></td>
       </tr>
     </table>
   </div>
@@ -96,6 +98,6 @@
   </div>
   
   <br>
-  <%= form.submit "投稿内容を確認する" %>
+  <p class="new_button"><%= form.submit "投稿内容を確認する" %></p>
 <% end %>
 </body>

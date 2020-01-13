@@ -1,4 +1,6 @@
-<h1>お問い合わせ</h1>
+<body class="_form">
+<br>
+<h1>&nbsp;お問い合わせ</h1>
 
 <%= render 'form', contact: @contact %>
 
@@ -12,13 +14,16 @@
 	<br>
 	<p><%= image_tag('blog.png', width: '20') %>&nbsp;<a href="https://www.tomoko-travel.fun/">ブログ「智子の搭乗紀行・時々ホテルに美味しいもの」</a></p>
 
-	<p><%= image_tag('ticket.png', width: '20') %>&nbsp;<a href="https://www.tomoko-travel.fun/">マイログ</a></p>
+	<p><%= image_tag('ticket.png', width: '20') %>&nbsp;<a href="http://www.flightlogbook.net/users/4">マイログ</a></p>
 
 	<p><%= image_tag('mail.png', width: '20') %>&nbsp;<a href="mailto:tomoko.air.tokyo@gmail.com"><a href="mailto:tomoko.air.tokyo@gmail.com">tomoko.air.tokyo@gmail.com</a></p><br>
+</div>
 
+<div class="twitter-timeline">
 	<p><a class="twitter-timeline" data-height="400" href="https://twitter.com/to_moko1112?ref_src=twsrc%5Etfw"><%= image_tag('twitter.jpg', width: '20') %>&nbsp; by to_moko1112</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script></p>
 </div>
 
 <div class="back">
   <%= link_to 'Back', flights_path %>
 </div>
+</body>

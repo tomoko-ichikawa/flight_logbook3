@@ -1,3 +1,4 @@
+<body class="_form">
 <%= form_with(model: contact, local: true) do |form| %>
   <% if contact.errors.any? %>
     <div id="error_explanation">
@@ -30,4 +31,5 @@
     <%= form.submit "送信" %>
   </div>
 <% end %>
+</body>
 

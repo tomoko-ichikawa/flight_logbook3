@@ -30,10 +30,10 @@
   <hr>
   <table class="boarding-pass2">
     <tr> 
-      <td>Flight</td>
-      <td>From</td>
-      <td>To</td>
-      <td>Date</td>
+      <td class="title">Flight</td>
+      <td class="title">From</td>
+      <td class="title">To</td>
+      <td class="title">Date</td>
     </tr>
     <tr class="flight_detail">
       <td><%= @flight.flight_number %></td>
@@ -108,7 +108,7 @@
     <td><%= image_tag(@flight.photo3.url) if @flight.photo3.present? %></td>
   </tr>
 </table>
-<%= form.submit "投稿する" %>
+<p class="new_button"><%= form.submit "投稿する" %></p>
 <% end %>
 
 <%= form_with(model: @flight, url: new_flight_path, local: true, method:'get') do |form| %>
@@ -132,5 +132,5 @@
 <%= form.hidden_field :photo1_cache %>
 <%= form.hidden_field :photo2_cache %>
 <%= form.hidden_field :photo3_cache %>
-<%= form.submit "戻る", name: 'back' %>
+<p class="new_button"><%= form.submit "戻る", name: 'back' %></p>
 <% end %>

@@ -1,3 +1,4 @@
+<div class="users_show">
 <h1>ユーザー詳細</h1>
 
 <li><%= link_to "マイページ編集", edit_user_registration_path %></li>&emsp; 
@@ -12,7 +13,7 @@
 		<td><%= @user.profile %></td>
 	</tr>
 	<tr>
-		<td><%= image_tag('passport.png', width: '20') %>&nbsp; 名前</td><td><%= @user.name %></td>
+		<td><%= image_tag('passport.png', width: '20') %>&nbsp; 名前</td><td class="user_name"><%= @user.name %></td>
 	</tr>
 	<!-- <tr>
 		<td><%= image_tag('mail.png', width: '20') %>&nbsp; email</td><td><%= @user.email %></td>
@@ -82,3 +83,4 @@
 		<% end %>
 	</tbody>
 </table>
+</div>
