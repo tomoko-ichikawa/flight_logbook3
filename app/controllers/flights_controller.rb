@@ -31,7 +31,7 @@ class FlightsController < ApplicationController
   end
 
   def show
-    @flights = Flight.all
+    @flights = Flight.all.order(created_at: :desc)
     @user = @flight.user
     
     @comment = current_user.comments.build

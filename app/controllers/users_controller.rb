@@ -9,7 +9,7 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find(params[:id])
 		@q = @user.flights.ransack(params[:q])
-		@flights = @q.result
+		@flights = @q.result.order(created_at: :desc)
 		
 		@favorite_flights = @user.favorite_flights
 		@total_getting_miles = @flights.all.sum(:getting_mile)
