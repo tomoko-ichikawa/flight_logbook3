@@ -25,16 +25,16 @@
 		<th class="th2"></th>
 	  </tr>
 
-	  <tr>
+	  <tr class="index_search">
 		<%= search_form_for @q do |f| %>
 		  <th><%= f.search_field :departure_airport_cont %></th>
 		  <th><%= f.search_field :arrival_airport_cont %></th>
 		  <th><%= f.search_field :airline_cont %></th>
 		  <th><%= f.search_field :seat_class_cont %></th>
 		  <th><%= f.date_field :departure_date_eq, include_blank: true %></th>
-		  <th class="search"><%= image_submit_tag "search.png" , width: '20' %></th>
-		  <th class="search"><%= link_to "http://www.flightlogbook.net/flights" do %><%= image_tag('batsu.png', width: '20') %><% end %></th>
-		  <th></th>
+		  <th colspan="2" class="search">&nbsp;<%= image_submit_tag "search.png" , width: '20' %></th>
+		  <th class="search"><%= link_to "http://www.flightlogbook.net/flights" do %><%= image_tag('batsu.png', width: '10') %><% end %></th>
+		 
 		<% end %>
 	  </tr>
 	</thead>
