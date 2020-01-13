@@ -48,8 +48,8 @@ header {
   font-size: xx-large;
   font-family: arial black;
   color: #ffffff;
-  a:link { color: #ffffff; }
-  a:visited { color: #ffffff; } 
+/*  a:link { color: #ffffff; }*/
+/*  a:visited { color: #ffffff; } */
 }
 
 .logo a:hover {
@@ -57,14 +57,14 @@ header {
 }
 
 .menu {
-  a:link { color: #ffffff; }
-  a:visited { color: #ffffff; } 
-  font-family: sans-serif;
+/*  a:link { color: #ffffff; }*/
+/*  a:visited { color: #ffffff; } */
+  font-family: 'Hiragino Maru Gothic ProN'
 }
 
 .menu li{
   display: inline;
-  list-style-type: none;
+/*  list-style-type: none;*/
 }
 
 .menu li a:hover {

@@ -19,7 +19,6 @@
 .show_user {
   border-collapse: collapse;
   border-spacing: 0;
- 
   width: 100%;
 }
 
@@ -29,25 +28,22 @@
   width: 93%;
   margin: 40px 3%;
   border-collapse: collapse;
-  table-layout: fixed;
   position: relative;
 }
 
-.show_user tr {
+.user_show_table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.user_show_table tr {
   border-bottom: solid 1px #eee;
 }
 
-.show_user td {
+.user_show_table td {
   text-align: left;
-  width: 25%;
   margin: 30px;
   padding: 15px;
-}
-
-a {
-  color: #333333;
-  a:link { color: #333333; }
-  a:visited { color: #333333; }
 }
 
 h1 {
@@ -83,4 +79,9 @@ input[type="search"] {
   border: 1px solid #00266b;
   border-radius: 4px;
   outline: none;
+}
+
+.profile {
+  a:link { color: #333333; }
+  a:visited { color: #333333; } 
 }

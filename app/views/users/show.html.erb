@@ -5,24 +5,27 @@
 
 <hr>
 
-<table class="show_user">
+<table class="user_show_table">
 	<tr>
-		<td class ="circle-icon">
-			<p><%= image_tag @user.icon.to_s %></p>
+		<td>
+			<p class ="circle-icon"><%= image_tag @user.icon.to_s %></p>
 		</td>
 		<td><%= @user.profile %></td>
 	</tr>
 	<tr>
-		<td><%= image_tag('passport.png', width: '20') %>&nbsp; 名前</td><td class="user_name"><%= @user.name %></td>
+		<td><%= image_tag('passport.png', width: '20') %>&nbsp; 名前</td>
+		<td class="user_name"><%= @user.name %></td>
 	</tr>
 	<!-- <tr>
 		<td><%= image_tag('mail.png', width: '20') %>&nbsp; email</td><td><%= @user.email %></td>
 	</tr> -->
 	<tr>
-		<td><%= image_tag('suitcase.png', width: '20') %>&nbsp; 総獲得マイル数</td><td><%= @total_getting_miles %></td>
+		<td><%= image_tag('suitcase.png', width: '20') %>&nbsp; 総獲得マイル数</td>
+		<td><%= @total_getting_miles %></td>
 	</tr>
 	<tr>
-		<td><%= image_tag('point2.png', width: '20') %>&nbsp; 総獲得ポイント数</td><td><%= @total_getting_points %></td>
+		<td><%= image_tag('point2.png', width: '20') %>&nbsp; 総獲得ポイント数</td>
+		<td><%= @total_getting_points %></td>
 	</tr>
 </table>
 
