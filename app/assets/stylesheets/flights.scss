@@ -165,7 +165,7 @@ footer {
   width: 25%;
   margin: 15px 0;
   padding: 15px;
-  font-size: 12px;
+  font-size: 0.9em;
 }
 
 .show_flight2 td {
@@ -234,9 +234,9 @@ select[id = "flight_actual_arrival_time_2i"],
 select[id = "flight_actual_arrival_time_3i"],
 select[id = "flight_actual_arrival_time_4i"],
 select[id = "flight_actual_arrival_time_5i"]{
-  width: 45px;
+  width: 40px;
   height: 30px;
-  font: 10px/24px sans-serif;
+  font: 0.9em sans-serif;
   box-sizing: border-box;
   margin: 8px 0;
   transition: 0.3s;
