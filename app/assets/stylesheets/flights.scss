@@ -224,6 +224,18 @@ footer {
   outline: none;
 }
 
+.show_flight_td2 input[type = "text"] {
+  width: 30px;
+  height: 30px;
+  font: 15px/24px sans-serif;
+  box-sizing: border-box;
+  margin: 8px 0;
+  transition: 0.3s;
+  border: 1px solid #00266b;
+  border-radius: 4px;
+  outline: none;
+}
+
 select[id = "flight_actual_departure_time_1i"],
 select[id = "flight_actual_departure_time_2i"],
 select[id = "flight_actual_departure_time_3i"],
