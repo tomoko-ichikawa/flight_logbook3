@@ -50,7 +50,7 @@
     <td class = "show_flight_td"><%= image_tag('airplane2.png', width: '20') %><br>機種</td> <td><%= @flight.aircraft_type %></td>
   </tr>
   <tr>
-    <td class = "show_flight_td"><%= image_tag('hourglass.png', width: '20') %><br>飛行時間</td> <td><%= @flight.flight_time %></td> 
+    <td class = "show_flight_td"><%= image_tag('hourglass.png', width: '20') %><br>飛行時間</td> <td><%= @flight.flight_hours %>&nbsp;時間&nbsp;<%= @flight.flight_minutes %>&nbsp;分</td> 
     <td class = "show_flight_td"><%= image_tag('departure.png', width: '20') %><br>飛行距離</td> <td><%= @flight.flight_mile %></td>
   </tr>
   <tr>
