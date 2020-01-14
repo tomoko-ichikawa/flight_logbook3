@@ -3,9 +3,6 @@ class FavoritesController < ApplicationController
 
   def create
   	@favorite = current_user.favorites.create(favorite_params)
-    @flight = @favorite.flight
-    @favorite.save
-    flight.create_notification_favorite!(current_user)
     redirect_to flight_path(@flight)
   end
 
