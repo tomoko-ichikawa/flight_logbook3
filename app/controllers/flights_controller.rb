@@ -24,7 +24,7 @@ class FlightsController < ApplicationController
   @flight.user_id = current_user.id
     
     if @flight.save
-      redirect_to flights_path
+      redirect_to @flight, notice: "フライトログを投稿しました"
     else
       render 'new'
     end
@@ -39,11 +39,12 @@ class FlightsController < ApplicationController
   end
 
   def edit
+
   end
 
   def update
   if @flight.update(flight_params)
-    redirect_to flights_path,notice: "フライトログを編集しました"
+    redirect_to @flight,notice: "フライトログを編集しました"
   else
     render 'edit'
   end
@@ -51,7 +52,8 @@ class FlightsController < ApplicationController
 
   def destroy
     @flight.destroy
-    redirect_to flights_path, notice:"ログを削除しました"
+    redirect_to flights_path, notice:"フライト
+    ログを削除しました"
   end
 
   def confirm
