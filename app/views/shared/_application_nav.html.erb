@@ -1,0 +1,16 @@
+<header>
+  <div class="masthead clearfix">
+    <div class="inner">
+      <h1 class="masthead-brand">&nbsp;
+        <%= link_to "FLIGHT LOGBOOK", root_path %>&nbsp;<%= image_tag('airplane_o64.png') %>
+      </h1><br>
+
+      <div class="nav nav-masthead">&emsp; 
+        <%= login_helper 'nav-link' %>&emsp;
+        <%= link_to "ログ一覧", flights_path, class: 'nav-link' %>&emsp;
+        <%= link_to "搭乗者一覧", users_path, class: 'nav-link' %>&emsp;
+        <%= link_to "問い合わせ", new_contact_path, class: 'nav-link' %>&emsp;
+      </div>
+    </div>
+  </div>
+</header>
