@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'pages/home'
   resources :contacts
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'comments/create'
@@ -25,6 +26,8 @@ Rails.application.routes.draw do
 	# namespace :admin do
 	# 	resources :users
 	# end
+
+  root to: 'pages#home'
 
 	mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?
 end
