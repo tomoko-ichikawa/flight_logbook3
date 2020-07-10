@@ -78,7 +78,7 @@ body {
 	margin: 0;
 }
 
-.circle-icon {
+/*.circle-icon {
 	position: relative;
 	width: 80%;
 	margin: 40px 3%;
@@ -94,7 +94,7 @@ body {
     width: 64px;
     height: 64px;
     background-image: url('./camera_s.png');
-}
+}*/
 
 /*入力フォーム*/
 .field {
