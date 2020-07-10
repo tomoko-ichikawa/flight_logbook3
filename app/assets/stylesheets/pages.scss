@@ -1,0 +1,32 @@
+.inner cover{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover-heading{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  -webkit-transform: translateY(-50%) translateX(-50%);
+}
+
+.background {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  background-image: image-url('home_bg.png');
+  background-size: cover;
+}
+
+.btn {
+  background-color: #00266b;
+}
