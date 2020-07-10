@@ -6,7 +6,6 @@
   <div class ="circle-icon">
     <% if current_user.persisted? && current_user.icon? %>
       <%= image_tag current_user.icon.to_s %>
-      <label><%= f.check_box :remove_icon %>画像を削除</label>
     <% else %>
       <%- image_tag current_user.icon.to_s %>
       <%= f.hidden_field :icon_cache %>
