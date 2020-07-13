@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-<!--     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+  <!--     <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
 
-    <title>Flight Logbook3</title>
+    <title><%= @page_title %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
-    <meta name="Keywords" content="flight logbook">
+    <meta name="Keywords" content="<%= @seo_keywords %>" />
 
     <%= favicon_link_tag 'favicons/favicon.ico' %>
 

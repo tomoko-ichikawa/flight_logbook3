@@ -4,6 +4,7 @@ class FlightsController < ApplicationController
   before_action :ensure_correct_user, only:[:edit, :update, :destroy]
 
   def index
+    @page_title = "フライトログ一覧"
     if logged_in?(:admin) 
       @flights = Flight.all.order(created_at: :desc)
     else
@@ -25,6 +26,7 @@ class FlightsController < ApplicationController
   end
 
   def new
+    @page_title = "フライトログ投稿"
     if params[:back]
       @flight = Flight.new(flight_params)
     else
@@ -44,6 +46,9 @@ class FlightsController < ApplicationController
   end
 
   def show
+    @page_title = (@flight.airline) + (@flight.seat_class)
+    @seo_keywords = (@flight.airline) + (@flight.seat_class)
+
     @flights = Flight.all.order(created_at: :desc)
     @user = @flight.user
     @comment = current_user.comments.build
@@ -51,7 +56,7 @@ class FlightsController < ApplicationController
   end
 
   def edit
-
+    @page_title = "フライトログ編集"
   end
 
   def update
@@ -69,6 +74,7 @@ class FlightsController < ApplicationController
   end
 
   def confirm
+    @page_title = "投稿確認"
     @flight = Flight.new(flight_params)
     @flight.user_id = current_user.id
     render :new if @flight.invalid?
