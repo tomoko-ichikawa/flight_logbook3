@@ -15,6 +15,7 @@ class ContactsController < ApplicationController
 
   # GET /contacts/new
   def new
+    @page_title = "お問い合わせ"
     @contact = Contact.new
   end
 

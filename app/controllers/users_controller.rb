@@ -3,11 +3,13 @@ class UsersController < ApplicationController
 	before_action :set_user, only: [:show, :edit, :update]
 
 	def index
+		@page_title = "搭乗者一覧"
 		@q = User.ransack(params[:q])
 		@users = @q.result(distinct: true)
 	end
 
 	def show
+		@page_title = "搭乗者"
 		if logged_in?(:admin) || current_user == @user
 			@q = @user.flights.ransack(params[:q])
 			@flights = @q.result.order(created_at: :desc)
@@ -23,6 +25,7 @@ class UsersController < ApplicationController
 	end
 
 	def edit
+		@page_title = "マイページ編集"
 	end
 
 	def update
