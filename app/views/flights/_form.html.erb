@@ -13,6 +13,14 @@
     </div>
   <% end %>
 
+  <div class="form-group">
+    　<%= form.radio_button :status, 'draft' %>　下書き
+  </div>
+
+  <div class="form-group">
+    　<%= form.radio_button :status, 'published' %>　公開
+  </div>
+
   <div class="boarding-pass">
     <table class="boarding-pass2">
       <tr>
@@ -54,23 +62,23 @@
   <div class="boarding-pass2">
     <table class = "show_flight">
       <tr>
-        <td class = "show_flight_td"><%= image_tag('time.png', width: '20') %><br>到着時間</td> 
+        <td class = "show_flight_td"><%= image_tag('time.png', width: '20') %> 到着時間</td> 
         <td class = "show_flight_td"><%= form.datetime_select :actual_arrival_time %></td> 
-        <td class = "show_flight_td"><%= image_tag('airplane2.png', width: '20') %><br>機種</td> 
+        <td class = "show_flight_td"><%= image_tag('airplane2.png', width: '20') %> 機種</td> 
         <td><%= form.text_field :aircraft_type %></td>
       </tr>
       <tr>
-        <td class = "show_flight_td"><%= image_tag('hourglass.png', width: '20') %><br>飛行時間</td> 
+        <td class = "show_flight_td"><%= image_tag('hourglass.png', width: '20') %> 飛行時間</td> 
         <td class = "show_flight_td2"><%= form.text_field :flight_hours %>時間&nbsp;<%= form.text_field :flight_minutes %>分</td>
-        <td class = "show_flight_td"><%= image_tag('departure.png', width: '20') %><br>飛行距離</td> <td><%= form.text_field :flight_mile %></td>
+        <td class = "show_flight_td"><%= image_tag('departure.png', width: '20') %> 飛行距離</td> <td><%= form.text_field :flight_mile %></td>
       </tr>
       <tr>
-        <td class = "show_flight_td"><%= image_tag('en.png', width: '20') %><br>運賃</td> <td><%= form.text_field :fare %></td> 
-        <td class = "show_flight_td"><%= image_tag('seat.png', width: '20') %><br>予約ｸﾗｽ</td> <td><%= form.text_field :booking_class %></td>
+        <td class = "show_flight_td"><%= image_tag('en.png', width: '20') %> 運賃</td> <td><%= form.text_field :fare %></td> 
+        <td class = "show_flight_td"><%= image_tag('seat.png', width: '20') %> 予約ｸﾗｽ</td> <td><%= form.text_field :booking_class %></td>
       </tr>
       <tr>
-        <td class = "show_flight_td"><%= image_tag('airplane3.png', width: '20') %><br>獲得ﾏｲﾙ</td> <td class = "show_flight_td"><%= form.text_field :getting_mile %></td> 
-        <td class = "show_flight_td"><%= image_tag('p.png', width: '20') %><br>獲得<br>ﾎﾟｲﾝﾄ</td> <td><%= form.text_field :getting_point %></td>
+        <td class = "show_flight_td"><%= image_tag('airplane3.png', width: '20') %> 獲得ﾏｲﾙ</td> <td class = "show_flight_td"><%= form.text_field :getting_mile %></td> 
+        <td class = "show_flight_td"><%= image_tag('p.png', width: '20') %> 獲得ﾎﾟｲﾝﾄ</td> <td><%= form.text_field :getting_point %></td>
       </tr>
     </table>
 
@@ -81,17 +89,17 @@
       </tr>
       <tr>
         <td><%= image_tag('camera.png', width: '20') %>&nbsp;  <%= form.file_field :photo1 %>
-          <%= image_tag(@flight.photo1.url) if @flight.photo1 && @flight.photo1.url %>
+          <P class='photo'><%= image_tag(@flight.photo1.url, width: '100%') if @flight.photo1 && @flight.photo1.url %>
           <%= form.hidden_field :photo1_cache %></td>
       </tr>
       <tr>
         <td><%= image_tag('camera.png', width: '20') %>&nbsp; <%= form.file_field :photo2 %>
-          <%= image_tag(@flight.photo2.url) if @flight.photo2 && @flight.photo2.url %>
+          <%= image_tag(@flight.photo2.url, width: '100%') if @flight.photo2 && @flight.photo2.url %>
           <%= form.hidden_field :photo2_cache %></td>
       </tr>
       <tr>
         <td><%= image_tag('camera.png', width: '20') %>&nbsp; <%= form.file_field :photo3 %>
-        <%= image_tag(@flight.photo3.url) if @flight.photo3 && @flight.photo3.url %>
+        <%= image_tag(@flight.photo3.url, width: '100%') if @flight.photo3 && @flight.photo3.url %>
         <%= form.hidden_field :photo3_cache %></td>
       </tr>
     </table>

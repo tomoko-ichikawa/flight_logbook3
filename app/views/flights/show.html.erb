@@ -1,136 +1,173 @@
 <body class="show">
-<br><p>&nbsp;&nbsp;<%= notice %></p>
-<div class="boarding-pass">
-  <div class = "airline">
-    <%= @flight.airline %>
-    <%= @flight.seat_class %>&emsp;
-  </div>
-  <hr>
-  <table class="boarding-pass2">
-    <tr>
-      <td colspan="4" class="passenger_name">
-        <%= link_to @user.name, user_path(@flight.user_id) %>
-    </tr>
-    <tr> 
-      <td class="title">Flight</td>
-      <td class="title">From</td>
-      <td class="title">To</td>
-      <td class="title">Date</td>
-    </tr>
-    <tr class="flight_detail">
-      <td><%= @flight.flight_number %></td>
-      <td><%= @flight.departure_airport %></td>
-      <td><%= @flight.arrival_airport %></td>
-      <td><%= @flight.departure_date %></td>
-    </tr>
-    <tr>
-      <td class="title">Terminal&nbsp;Gate&emsp; </td> 
-      <td class="title">Departure<br>time&emsp; </td>
-      <td class="title">Seat&emsp; </td>
-      <td class="title">Boarding<br>Group</td>
-    </tr>
-    <tr class="flight_detail">
-      <td></td>&emsp;        
-      <td class="details"><%= @flight.actual_departure_time.strftime("%H:%M") %>&emsp; </td>
-      <td class="details"><%= @flight.seat_number %>&emsp; </td>
-      <td></td>&emsp;
-      </tr>
-    <tr>
-      <td colspan="5">YOU ARE INVITED TO THE FLIGHT LOGBOOK</td>
-    </tr>
-    <tr>
-      <td colspan="5">GATE CLOSES 10 MINS BEFORE DEPARTURE</td>
-    </tr>
-  </table>
-</div>
-
-
-<table class = "show_flight">
-  <tr>
-    <td class = "show_flight_td"><%= image_tag('time.png', width: '20') %><br>到着時間</td> <td><%= @flight.actual_arrival_time.strftime("%m") %>-<%= @flight.actual_arrival_time.strftime("%d") %><br><%= @flight.actual_arrival_time.strftime("%H:%M") %></td> 
-    <td class = "show_flight_td"><%= image_tag('airplane2.png', width: '20') %><br>機種</td> <td><%= @flight.aircraft_type %></td>
-  </tr>
-  <tr>
-    <td class = "show_flight_td"><%= image_tag('hourglass.png', width: '20') %><br>飛行時間</td> <td><%= @flight.flight_hours %>時間&nbsp;<%= @flight.flight_minutes %>分</td> 
-    <td class = "show_flight_td"><%= image_tag('departure.png', width: '20') %><br>飛行距離</td> <td><%= @flight.flight_mile %></td>
-  </tr>
-  <tr>
-    <td class = "show_flight_td"><%= image_tag('en.png', width: '20') %><br>運賃</td> <td><%= @flight.fare %></td class = "show_flight_td">
-    <td class = "show_flight_td"><%= image_tag('seat.png', width: '20') %><br>予約ｸﾗｽ</td> <td> <%= @flight.booking_class %></td>
-  </tr>
-  <tr>
-    <td class = "show_flight_td"><%= image_tag('airplane3.png', width: '20') %><br>獲得ﾏｲﾙ</td><td><%= @flight.getting_mile %></td>
-    <td class = "show_flight_td_p"><%= image_tag('p.png', width: '20') %><br>獲得ﾎﾟｲﾝﾄ</td> <td><%= @flight.getting_point %></td>
-  </tr>
-</table>
-
-<table class = "show_flight2">
-  <tr>
-    <td colspan="4" class="show_flight_td"><%= image_tag('note.png', width: '20') %>&nbsp; 感想
-     </td>
-  </tr>
-  <tr class="review">
-    <td colspan="4"><%= @flight.review %></td>
-  </tr>
-  <tr>
-    <td><%= image_tag('camera.png', width: '20') %>&nbsp; </td>
-  </tr>
-  <tr>
-    <td colspan="4"><%= image_tag(@flight.photo1.url) if @flight.photo1.present? %></td>
-  </tr>
-  <tr>
-    <td colspan="4"><%= image_tag('camera.png', width: '20') %>&nbsp; </td>
-  </tr>
-  <tr>
-    <td colspan="4"><%= image_tag(@flight.photo2.url) if @flight.photo2.present? %></td>
-  </tr>
-  <tr>
-    <td colspan="4"><%= image_tag('camera.png', width: '20') %>&nbsp; </td>
-  </tr>
-  <tr>
-    <td><%= image_tag(@flight.photo3.url) if @flight.photo3.present? %></td>
-  </tr>
-</table>
-
-<table class="edit">
-  <tr>
-    <% if user_signed_in? %>
-      <td><% if @flight.favorited_by?(current_user) %>
-        <%= link_to image_tag('heart.png', width: '20'), flight_favorites_path(@flight.id), method: :delete %></td>
-      <% else %>
-        <td><%= link_to image_tag('heart_w.png', width: '20'),flight_favorites_path(@flight.id), method: :post %></td>
+  <br><p>&nbsp;&nbsp;<%= notice %></p>
+  <% if current_user && current_user.id == @flight.user.id %>
+    <%= form_with(model: @flight, url: flights_path, local: true) do |form| %>
+      <div class="form-group">
+        &nbsp;<%= form.radio_button :status, 'draft' %>　下書き
+      </div>
+      <div class="form-group">
+        &nbsp;<%= form.radio_button :status, 'published' %>　公開
+      </div>
       <% end %>
-    <% end %>
-    <td><%= @flight.favorites.count %></td>
+  <% end %>
 
-        <!-- <td><%= link_to image_tag('ticket.png', width: '50'), flight_path(@flight.id) %></td> -->
-    <% if current_user && current_user.id == @flight.user.id %>
-      <td><%= link_to image_tag('pencil.png', width: '20'),  edit_flight_path(@flight.id) %></td>
-      <td><%= link_to image_tag('garbage.png', width: '20'), flight_path(@flight.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td>
-    <% end %>
-  </tr>
-</table>
+  <% if current_user && current_user.id == @flight.user.id %>
+    <div class="form-group">
+      　<%= link_to image_tag('pencil.png', width: '20'),  edit_flight_path(@flight.id) %>　編集　　
+      　<%= link_to image_tag('garbage.png', width: '20'), flight_path(@flight.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %>　削除
+    </div>
+  <% end %>
 
-<br>
-<table>  
-  <h2>&nbsp;コメント</h2>
-  <% @comments.each do |comment| %>
-  <hr>
-    <p><%= image_tag('passport.png', width: '20') %>&nbsp; <%= comment.user.name %></p>
-    <p><%= image_tag('comment.png', width: '20') %>&nbsp; <%= comment.content %></p>
-    <p><% if current_user && current_user.id == comment.user.id %>
-      <%= link_to image_tag('garbage.png', width: '20'), flight_comments_path(flight_id: @flight, id: comment.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %></p>
-    <% end %>
+  <% if logged_in?(:admin) || current_user && current_user.id == @flight.user.id || @flight.published? %>
+    <div class="boarding-pass">
+      <div class = "airline">
+        <%= @flight.airline %>
+        <%= @flight.seat_class %>&emsp;
+      </div>
+      <hr>
+      <table class="boarding-pass2">
+        <tr>
+          <td colspan="4" class="passenger_name">
+            <%= link_to @user.name, user_path(@flight.user_id) %>
+        </tr>
+        <tr> 
+          <td class="title">Flight</td>
+          <td class="title">From</td>
+          <td class="title">To</td>
+          <td class="title">Date</td>
+        </tr>
+        <tr class="flight_detail">
+          <td><%= @flight.flight_number %></td>
+          <td><%= @flight.departure_airport %></td>
+          <td><%= @flight.arrival_airport %></td>
+          <td><%= @flight.departure_date %></td>
+        </tr>
+        <tr>
+          <td class="title">Terminal&nbsp;Gate&emsp; </td> 
+          <td class="title">Departure<br>time&emsp; </td>
+          <td class="title">Seat&emsp; </td>
+          <td class="title">Boarding<br>Group</td>
+        </tr>
+        <tr class="flight_detail">
+          <td></td>&emsp;        
+          <td class="details"><%= @flight.actual_departure_time.strftime("%H:%M") %>&emsp; </td>
+          <td class="details"><%= @flight.seat_number %>&emsp; </td>
+          <td></td>&emsp;
+          </tr>
+        <tr>
+          <td colspan="5">YOU ARE INVITED TO THE FLIGHT LOGBOOK</td>
+        </tr>
+        <tr>
+          <td colspan="5">GATE CLOSES 10 MINS BEFORE DEPARTURE</td>
+        </tr>
+      </table>
+    </div>
+
+    <table class = "show_flight">
+      <tr>
+        <td class = "show_flight_td">
+          <%= image_tag('time.png', width: '20') %>&nbsp;到着時間
+        </td>
+        <td><%= @flight.actual_arrival_time.strftime("%m") %>-<%= @flight.actual_arrival_time.strftime("%d") %><br><%= @flight.actual_arrival_time.strftime("%H:%M") %></td><td class = "show_flight_td">
+          <%= image_tag('airplane2.png', width: '20') %>&nbsp;機種
+        </td>
+        <td><%= @flight.aircraft_type %></td>
+      </tr>
+      <tr>
+        <td class = "show_flight_td">
+          <%= image_tag('hourglass.png', width: '20') %>&nbsp;飛行時間
+        </td>
+        <td><%= @flight.flight_hours %>時間&nbsp;<%= @flight.flight_minutes %>分</td> 
+        <td class = "show_flight_td">
+          <%= image_tag('departure.png', width: '20') %>&nbsp;飛行距離
+        </td> 
+        <td><%= @flight.flight_mile %></td>
+      </tr>
+      <tr>
+        <td class = "show_flight_td">
+          <%= image_tag('en.png', width: '20') %>&nbsp;運賃
+        </td> 
+        <td><%= @flight.fare %></td>
+        <td class = "show_flight_td">
+          <%= image_tag('seat.png', width: '20') %>&nbsp;予約ｸﾗｽ
+        </td>
+          <td> <%= @flight.booking_class %></td>
+      </tr>
+      <tr>
+        <td class = "show_flight_td">
+          <%= image_tag('airplane3.png', width: '20') %>&nbsp;獲得ﾏｲﾙ
+        </td>
+          <td><%= @flight.getting_mile %></td>
+        <td class = "show_flight_td_p"><%= image_tag('p.png', width: '20') %>&nbsp;獲得ﾎﾟｲﾝﾄ
+        </td> 
+        <td><%= @flight.getting_point %></td>
+      </tr>
+    </table>
+
+    <table class = "show_flight2">
+      <tr>
+        <td colspan="4" class="show_flight_td"><%= image_tag('note.png', width: '20') %>&nbsp; 感想
+         </td>
+      </tr>
+      <tr class="review">
+        <td colspan="4"><%= @flight.review %></td>
+      </tr>
+      <tr>
+        <td><%= image_tag('camera.png', width: '20') %>&nbsp; </td>
+      </tr>
+      <tr>
+        <td colspan="4"><%= image_tag(@flight.photo1.url, width: '100%') if @flight.photo1.present? %></td>
+      </tr>
+      <tr>
+        <td colspan="4"><%= image_tag('camera.png', width: '20') %>&nbsp; </td>
+      </tr>
+      <tr>
+        <td colspan="4"><%= image_tag(@flight.photo2.url, width: '100%') if @flight.photo2.present? %></td>
+      </tr>
+      <tr>
+        <td colspan="4"><%= image_tag('camera.png', width: '20') %>&nbsp; </td>
+      </tr>
+      <tr>
+        <td><%= image_tag(@flight.photo3.url, width: '100%') if @flight.photo3.present? %></td>
+      </tr>
+    </table>
+
+    <table class="edit">
+      <tr>
+        <% if user_signed_in? %>
+          <td>&nbsp;<% if @flight.favorited_by?(current_user) %>
+            <%= link_to image_tag('heart.png', width: '20'), flight_favorites_path(@flight.id), method: :delete %> いいね</td>
+          <% else %>
+            <td>&nbsp;<%= link_to image_tag('heart_w.png', width: '20'),flight_favorites_path(@flight.id), method: :post %> いいね</td>
+          <% end %>
+        <% end %>
+        <td><%= @flight.favorites.count %></td>
+
+            <!-- <td><%= link_to image_tag('ticket.png', width: '50'), flight_path(@flight.id) %></td> -->
+      </tr>
+    </table>
+  <% end %>
+
+  <br>
+  <table>  
+    <h2>&nbsp;コメント</h2>
+    <% @comments.each do |comment| %>
     <hr>
-  <% end %>
+      <p><%= image_tag('passport.png', width: '20') %>&nbsp; <%= comment.user.name %></p>
+      <p><%= image_tag('comment.png', width: '20') %>&nbsp; <%= comment.content %></p>
+      <p><% if current_user && current_user.id == comment.user.id %>
+        <%= link_to image_tag('garbage.png', width: '20'), flight_comments_path(flight_id: @flight, id: comment.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %></p>
+      <% end %>
+      <hr>
+    <% end %>
 
-  <div class="comment">
-  <%= form_for([@flight, @comment]) do |f| %>
-    <%= f.text_field :content %>
-    <br><%= f.submit "コメントする" %>
-    <br>
-  <% end %>
-  </div>
-</table>
-<br><br><br>
+    <div class="comment">
+    <%= form_for([@flight, @comment]) do |f| %>
+      <%= f.text_field :content %>
+      <br><%= f.submit "コメントする" %>
+      <br>
+    <% end %>
+    </div>
+  </table>
+    <br><br><br>
 </body>

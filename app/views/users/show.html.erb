@@ -1,8 +1,9 @@
 <div class="users_show">
 	<h1>ユーザー詳細</h1><br>
 
-<li class="mypage_editlink"><%= link_to "マイページ編集", edit_user_registration_path %></li>&emsp; 
-
+<% if current_user == @user %>
+		<li class="mypage_editlink"><%= link_to "マイページ編集", edit_user_registration_path %></li>&emsp; 
+<% end %>
 	<hr>
 
 	<table class="user_show_table">
@@ -77,7 +78,13 @@
 				<% end %>
 				<td class="heart"><%= flight.favorites.count %></td>
 
-				<td><%= link_to image_tag('ticket.png', width: '25'), flight_path(flight.id) %></td>
+				<td>
+					<% if flight.published? %>
+						<%= link_to image_tag('ticket_blue.png', width: '20'), flight_path(flight.id) %>
+  				<% else %>
+						<%= link_to image_tag('ticket.png', width: '20'), flight_path(flight.id) %>
+					<% end %>
+				</td>
 				<!--<% if current_user && current_user.id == flight.user.id %>
 					 <td><%= link_to image_tag('pencil.png', width: '30'),  edit_flight_path(flight.id) %></td>
 					<td><%= link_to image_tag('garbage.png', width: '30'), flight_path(flight.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td> 
