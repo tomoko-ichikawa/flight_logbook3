@@ -1,71 +1,77 @@
 <div class="flgihts_index">
-<br>
-<% if current_user.try(:admin?) %>
- <h1>&nbsp;管理者</h1>
-<% else %>
-<% end %><br>
+	<br>
+	<% if current_user.try(:admin?) %>
+		<h1>&nbsp;管理者</h1>
+	<% else %>
+	<% end %><br>
 
-<p>&nbsp;&nbsp;<%= notice %></p>
+	<p>&nbsp;&nbsp;<%= notice %></p>
 
-<div class="button">
-  <%= link_to "新しいフライトログを投稿する", new_flight_path%>
-</div>
+	<div class="button">
+	  <%= link_to "フライトログを投稿する", new_flight_path%>
+	</div>
 
-<table class="indextable">
-  <thead>
-	<tr>
-	  <th class="th1"><%= image_tag('departure.png', width: '20') %><br><%= sort_link(@q, :departure_airport, "出発空港") %></th>
-	  <th class="th1"><%= image_tag('landing.png', width: '20') %><br><%= sort_link(@q, :arrival_airport, "到着空港") %></th>
-	  <th class="th1"><%= image_tag('airplane.png', width: '20') %><br><%= sort_link(@q, :airline, "航空会社") %></th>
-	  <th class="th1"><%= image_tag('seat.png', width: '20') %><br><%= sort_link(@q, :seat_class, "座席ｸﾗｽ") %></th>
-	  <th class="th1"><%= image_tag('calendar.png', width: '20') %><br><%= sort_link(@q, :departure_date, "搭乗日") %></th>
-			<!-- <th>投稿者</th> -->
-		<th class="th2"></th>
-		<th class="th2"></th>
-	</tr>
-
-	 <tr class="index_search">
-		<%= search_form_for @q do |f| %>
-		  <th><%= f.search_field :departure_airport_cont %></th>
-		  <th><%= f.search_field :arrival_airport_cont %></th>
-		  <th><%= f.search_field :airline_cont %></th>
-		  <th><%= f.search_field :seat_class_cont %></th>
-		  <th><%= f.date_field :departure_date_eq, include_blank: true %></th>
-		  <th><%= f.submit "検索" %></th>
-		  <!-- <th><%= link_to "http://www.flightlogbook.net/flights" do %><%= image_tag('batsu.png', width: '15') %><% end %></th> -->
-		<% end %>
-		<th class="th2"></th>
-	 </tr>
-	</thead>
-
-	<tbody>
-	  <% @flights.each do |flight| %>
+	<table class="indextable">
+	  <thead>
 		<tr>
-		  <td><%= flight.departure_airport %></td>
-		  <td><%= flight.arrival_airport %></td>
-	  	  <td><%= flight.airline %></td>
-		  <td><%= flight.seat_class %></td>
-		  <td><%= flight.departure_date %></td>
-			<!-- <td><%= flight.user.name %></td> -->
-		  <!-- <td class="heart"><%= link_to image_tag('heart.png', width: '20') %></td> -->
-		  <% if user_signed_in? %>
-			<% if flight.favorited_by?(current_user) %>
-			  <td class="heart"><%= link_to image_tag('heart.png', width: '18'), flight_favorites_path(flight.id), method: :delete %></td>
-			<% else %>
-			  <td class="heart"><%= link_to image_tag('heart_w.png', width: '18'),flight_favorites_path(flight.id), method: :post %></td>
+		  <th class="th1"><%= image_tag('departure.png', width: '20') %><br><%= sort_link(@q, :departure_airport, "出発空港") %></th>
+		  <th class="th1"><%= image_tag('landing.png', width: '20') %><br><%= sort_link(@q, :arrival_airport, "到着空港") %></th>
+		  <th class="th1"><%= image_tag('airplane.png', width: '20') %><br><%= sort_link(@q, :airline, "航空会社") %></th>
+		  <th class="th1"><%= image_tag('seat.png', width: '20') %><br><%= sort_link(@q, :seat_class, "座席ｸﾗｽ") %></th>
+		  <th class="th1"><%= image_tag('calendar.png', width: '20') %><br><%= sort_link(@q, :departure_date, "搭乗日") %></th>
+				<!-- <th>投稿者</th> -->
+			<th class="th2"></th>
+			<th class="th2"></th>
+		</tr>
+
+		 <tr class="index_search">
+			<%= search_form_for @q do |f| %>
+			  <th><%= f.search_field :departure_airport_cont %></th>
+			  <th><%= f.search_field :arrival_airport_cont %></th>
+			  <th><%= f.search_field :airline_cont %></th>
+			  <th><%= f.search_field :seat_class_cont %></th>
+			  <th><%= f.date_field :departure_date_eq, include_blank: true %></th>
+			  <th><%= f.submit "検索" %></th>
+			  <!-- <th><%= link_to "http://www.flightlogbook.net/flights" do %><%= image_tag('batsu.png', width: '15') %><% end %></th> -->
 			<% end %>
+			<th class="th2"></th>
+		 </tr>
+		</thead>
+
+		<tbody>
+		  <% @flights.each do |flight| %>
+				<tr>
+				  <td><%= flight.departure_airport %></td>
+				  <td><%= flight.arrival_airport %></td>
+			  	  <td><%= flight.airline %></td>
+				  <td><%= flight.seat_class %></td>
+				  <td><%= flight.departure_date %></td>
+					<!-- <td><%= flight.user.name %></td> -->
+				  <!-- <td class="heart"><%= link_to image_tag('heart.png', width: '20') %></td> -->
+				  <% if user_signed_in? %>
+						<% if flight.favorited_by?(current_user) %>
+						  <td class="heart"><%= link_to image_tag('heart.png', width: '18'), flight_favorites_path(flight.id), method: :delete %></td>
+						<% else %>
+						  <td class="heart"><%= link_to image_tag('heart_w.png', width: '18'),flight_favorites_path(flight.id), method: :post %></td>
+						<% end %>
+				  <% end %>
+
+				  <td class="heart"><%= flight.favorites.count %></td>
+
+				  <td>
+				  	<% if flight.published? %>
+				  		<%= link_to image_tag('ticket_blue.png', width: '20'), flight_path(flight.id) %>
+				  	<% else %>
+				  		<%= link_to image_tag('ticket.png', width: '20'), flight_path(flight.id) %>				  	
+				  	<% end %>
+				  </td>
+					<!--<% if current_user && current_user.id == flight.user.id %>
+						 <td><%= link_to image_tag('pencil.png', width: '30'),  edit_flight_path(flight.id) %></td>
+						<td><%= link_to image_tag('garbage.png', width: '30'), flight_path(flight.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td> 
+					<% end %>-->
+				 </tr>
 		  <% end %>
-
-		  <td class="heart"><%= flight.favorites.count %></td>
-
-		  <td><%= link_to image_tag('ticket.png', width: '20'), flight_path(flight.id) %></td>
-			<!--<% if current_user && current_user.id == flight.user.id %>
-				 <td><%= link_to image_tag('pencil.png', width: '30'),  edit_flight_path(flight.id) %></td>
-				<td><%= link_to image_tag('garbage.png', width: '30'), flight_path(flight.id),method: :delete ,data: { confirm: '本当に削除していいですか？' } %></td> 
-			<% end %>-->
-		  </tr>
-	  <% end %>
-	</tbody>
-</table>
-<br>
+		</tbody>
+	</table>
+	<br>
 </div>

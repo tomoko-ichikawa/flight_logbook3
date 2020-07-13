@@ -1,4 +1,6 @@
 class Flight < ApplicationRecord
+	enum status: { draft: 0, published: 1 }
+
 	validates :departure_airport, :arrival_airport, :airline, presence: true 
 
 	belongs_to :user
