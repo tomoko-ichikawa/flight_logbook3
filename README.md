@@ -27,6 +27,7 @@ Rails 5.2.3
 - ログお気に入り機能
 - コメント投稿機能
 - 検索機能
+- 下書き・公開機能
 
 ## カタログ設計
 https://drive.google.com/open?id=1SFZo_HnoG7jfiyn7FaY10_Ccww9dDcwO
