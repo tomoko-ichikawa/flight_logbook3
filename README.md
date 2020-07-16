@@ -42,10 +42,15 @@ https://drive.google.com/open?id=17A-aCzzY06idYpveak_FpdLe_AdsxIiA
 https://drive.google.com/open?id=1VLEbYVdWZLl2wNPmixt8egPdk8KTThTM
 
 ## 使用予定Gem
-carrierwave  
+carrierwave
+fog-aws
 mini_magick  
 devise  
-Ransack  
+Ransack
+rails_admin
+kaminari
+bootstrap
+petergate
 
 ## 技術要件
 就業Termから
@@ -54,3 +59,4 @@ Ransack
 
 カリキュラム外から
 - 検索機能（Ransackを使用。出発空港、到着空港、航空会社、座席クラスを検索）
+- 下書き・公開機能(enumでの定数による下書き・公開の別）
